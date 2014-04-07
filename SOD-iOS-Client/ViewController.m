@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-<<<<<<< HEAD
 #import <zeromq-ios.framework/Headers/zmq.h>
 #import "ZMQObjC.h"
 #import <CoreMotion/CoreMotion.h>
@@ -16,15 +15,10 @@
 #define ORIENTATION_UPDATE_INTERVAL 1.0f/5.0f
 
 @interface ViewController ()
-@property (nonatomic, strong) CMMotionManager *manager;
-@property float offsetValue;
-@property (nonatomic, strong) NSString* endpoint;
-@property (nonatomic, strong) NSString* pushendpoint;
-=======
-
-@interface ViewController ()
-
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
+    @property (nonatomic, strong) CMMotionManager *manager;
+    @property float offsetValue;
+    @property (nonatomic, strong) NSString* endpoint;
+    @property (nonatomic, strong) NSString* pushendpoint;
 @end
 
 @implementation ViewController
@@ -32,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-<<<<<<< HEAD
     self = [super init];
     if(self){
         self.offsetValue = 0;
@@ -65,7 +58,7 @@
                 [self sendOrientation:pushendpoint andOrientation:orientation];
             }
         }];
-        
+
 	}
     
 	// Do any additional setup after loading the view, typically from a nib.
@@ -84,13 +77,13 @@
     }
     
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", orientation, @"orientation", nil];
-    
+                        [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", orientation, @"orientation", nil];
+            
     NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"updateOrientation", @"requestType", requestData, @"device", nil];
     NSError* error =  nil;
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:requestCapsule
-                                                       options:NSJSONWritingPrettyPrinted error: &error];
+                                                        options:NSJSONWritingPrettyPrinted error: &error];
     NSString* requestDataString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSLog(requestDataString);
     NSData *request = [requestDataString dataUsingEncoding:NSUTF8StringEncoding];
@@ -117,58 +110,52 @@
 		NSLog(@"*** Failed to connect to endpoint [%@].", endpoint);
     }
 	NSData *request = [requestDataString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSLog(@"Sending request");
-    [requester sendData:request withFlags:0];
-    
-    NSLog(@"Waiting for reply");
-    NSData *reply = [requester receiveDataWithFlags:0];
-    NSString *text = [[NSString alloc] initWithData:reply encoding:NSUTF8StringEncoding];
-    NSLog(@"Received reply %@", text);
+
+        NSLog(@"Sending request");
+        [requester sendData:request withFlags:0];
+        
+        NSLog(@"Waiting for reply");
+        NSData *reply = [requester receiveDataWithFlags:0];
+        NSString *text = [[NSString alloc] initWithData:reply encoding:NSUTF8StringEncoding];
+        NSLog(@"Received reply %@", text);
     [ctx closeSockets];
     [ctx terminate];
-    return [@"tcp://192.168.20.12:" stringByAppendingString:text];
+        return [@"tcp://192.168.20.12:" stringByAppendingString:text];
 }
 
-=======
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-<<<<<<< HEAD
+    
 #pragma mark - Helper functions
-
+    
 -(float) convertToDegrees:(float) radians {
     float degrees = radians/M_PI * 180.0;
 	if (degrees < 0)
-        degrees = 360 + degrees;
+    degrees = 360 + degrees;
 	return degrees;
 }
-
+    
 -(float) normalizeDegrees:(float) degrees {
 	if (degrees < 0) {
 		degrees = 360 + degrees;
     }
     else {
         while (degrees > 360)
-            degrees -= 360;
+        degrees -= 360;
     }
 	return degrees;
 }
-
--(CMMotionManager *)manager
-{
-    if (!_manager) {
-        _manager = [[CMMotionManager alloc] init];
+    
+    -(CMMotionManager *)manager
+    {
+        if (!_manager) {
+            _manager = [[CMMotionManager alloc] init];
+        }
+        return _manager;
     }
-    return _manager;
-}
 
 
 @end
@@ -178,20 +165,17 @@
     NSString *requestType;
     NSString *additionalInfo;
 }
-- (id)initWithInitialRequestType: (NSString*)initialRequestType;
-- (id)initWithInitialAdditionalInfo: (NSString*)initialAdditionalInfo;
+    - (id)initWithInitialRequestType: (NSString*)initialRequestType;
+    - (id)initWithInitialAdditionalInfo: (NSString*)initialAdditionalInfo;
 @end
 
 @implementation DataCapsule
--(id)initWithInitialRequestType:(NSString*)initialRequestType{
-    requestType = initialRequestType;
-    return self;
-}
--(id)initWithInitialAdditionalInfo:(NSString *)initialAdditionalInfo{
-    additionalInfo = initialAdditionalInfo;
-    return self;
-}
+    -(id)initWithInitialRequestType:(NSString*)initialRequestType{
+        requestType = initialRequestType;
+        return self;
+    }
+    -(id)initWithInitialAdditionalInfo:(NSString *)initialAdditionalInfo{
+        additionalInfo = initialAdditionalInfo;
+        return self;
+    }
 @end
-=======
-@end
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
