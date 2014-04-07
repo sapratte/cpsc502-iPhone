@@ -21,14 +21,6 @@
 		21B53C7418D22A9600136835 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C5618D22A9600136835 /* UIKit.framework */; };
 		21B53C7C18D22A9600136835 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C7A18D22A9600136835 /* InfoPlist.strings */; };
 		21B53C7E18D22A9600136835 /* SOD_iOS_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C7D18D22A9600136835 /* SOD_iOS_ClientTests.m */; };
-<<<<<<< HEAD
-		21B53C8818D22AB100136835 /* zeromq-ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C8718D22AB100136835 /* zeromq-ios.framework */; };
-		21B53C8F18D23A0D00136835 /* ZMQContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C8B18D23A0D00136835 /* ZMQContext.m */; };
-		21B53C9018D23A0D00136835 /* ZMQContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C8B18D23A0D00136835 /* ZMQContext.m */; };
-		21B53C9118D23A0D00136835 /* ZMQSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C8E18D23A0D00136835 /* ZMQSocket.m */; };
-		21B53C9218D23A0D00136835 /* ZMQSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C8E18D23A0D00136835 /* ZMQSocket.m */; };
-=======
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,15 +53,6 @@
 		21B53C7918D22A9600136835 /* SOD-iOS-ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOD-iOS-ClientTests-Info.plist"; sourceTree = "<group>"; };
 		21B53C7B18D22A9600136835 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21B53C7D18D22A9600136835 /* SOD_iOS_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOD_iOS_ClientTests.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		21B53C8718D22AB100136835 /* zeromq-ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "zeromq-ios.framework"; sourceTree = "<group>"; };
-		21B53C8A18D23A0D00136835 /* ZMQContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMQContext.h; sourceTree = "<group>"; };
-		21B53C8B18D23A0D00136835 /* ZMQContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMQContext.m; sourceTree = "<group>"; };
-		21B53C8C18D23A0D00136835 /* ZMQObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMQObjC.h; sourceTree = "<group>"; };
-		21B53C8D18D23A0D00136835 /* ZMQSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMQSocket.h; sourceTree = "<group>"; };
-		21B53C8E18D23A0D00136835 /* ZMQSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMQSocket.m; sourceTree = "<group>"; };
-=======
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +62,6 @@
 			files = (
 				21B53C5518D22A9600136835 /* CoreGraphics.framework in Frameworks */,
 				21B53C5718D22A9600136835 /* UIKit.framework in Frameworks */,
-<<<<<<< HEAD
-				21B53C8818D22AB100136835 /* zeromq-ios.framework in Frameworks */,
-=======
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 				21B53C5318D22A9600136835 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,11 +101,6 @@
 		21B53C5118D22A9600136835 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				21B53C8918D23A0D00136835 /* src */,
-				21B53C8718D22AB100136835 /* zeromq-ios.framework */,
-=======
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 				21B53C5218D22A9600136835 /* Foundation.framework */,
 				21B53C5418D22A9600136835 /* CoreGraphics.framework */,
 				21B53C5618D22A9600136835 /* UIKit.framework */,
@@ -178,21 +152,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		21B53C8918D23A0D00136835 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				21B53C8A18D23A0D00136835 /* ZMQContext.h */,
-				21B53C8B18D23A0D00136835 /* ZMQContext.m */,
-				21B53C8C18D23A0D00136835 /* ZMQObjC.h */,
-				21B53C8D18D23A0D00136835 /* ZMQSocket.h */,
-				21B53C8E18D23A0D00136835 /* ZMQSocket.m */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-=======
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -240,12 +199,6 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "ASE Group";
 				TargetAttributes = {
-<<<<<<< HEAD
-					21B53C4E18D22A9600136835 = {
-						DevelopmentTeam = YXCB5M726A;
-					};
-=======
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 					21B53C6F18D22A9600136835 = {
 						TestTargetID = 21B53C4E18D22A9600136835;
 					};
@@ -296,17 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				21B53C8F18D23A0D00136835 /* ZMQContext.m in Sources */,
 				21B53C6918D22A9600136835 /* ViewController.m in Sources */,
 				21B53C6318D22A9600136835 /* AppDelegate.m in Sources */,
 				21B53C5F18D22A9600136835 /* main.m in Sources */,
-				21B53C9118D23A0D00136835 /* ZMQSocket.m in Sources */,
-=======
-				21B53C6918D22A9600136835 /* ViewController.m in Sources */,
-				21B53C6318D22A9600136835 /* AppDelegate.m in Sources */,
-				21B53C5F18D22A9600136835 /* main.m in Sources */,
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,11 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				21B53C9218D23A0D00136835 /* ZMQSocket.m in Sources */,
-				21B53C9018D23A0D00136835 /* ZMQContext.m in Sources */,
-=======
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 				21B53C7E18D22A9600136835 /* SOD_iOS_ClientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,30 +380,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-<<<<<<< HEAD
-				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/asegroup/Desktop/SOD-iOS-Client",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SOD-iOS-Client/SOD-iOS-Client-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/**",
-					"$(SRCROOT)/zeromq-ios.framework/Headers",
-				);
-				INFOPLIST_FILE = "SOD-iOS-Client/SOD-iOS-Client-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-lc++";
-=======
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOD-iOS-Client/SOD-iOS-Client-Prefix.pch";
 				INFOPLIST_FILE = "SOD-iOS-Client/SOD-iOS-Client-Info.plist";
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -474,30 +393,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-<<<<<<< HEAD
-				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/asegroup/Desktop/SOD-iOS-Client",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SOD-iOS-Client/SOD-iOS-Client-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/**",
-					"$(SRCROOT)/zeromq-ios.framework/Headers",
-				);
-				INFOPLIST_FILE = "SOD-iOS-Client/SOD-iOS-Client-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-lc++";
-=======
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOD-iOS-Client/SOD-iOS-Client-Prefix.pch";
 				INFOPLIST_FILE = "SOD-iOS-Client/SOD-iOS-Client-Info.plist";
->>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
