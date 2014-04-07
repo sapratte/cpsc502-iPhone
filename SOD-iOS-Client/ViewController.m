@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+<<<<<<< HEAD
 #import <zeromq-ios.framework/Headers/zmq.h>
 #import "ZMQObjC.h"
 #import <CoreMotion/CoreMotion.h>
@@ -19,6 +20,11 @@
 @property float offsetValue;
 @property (nonatomic, strong) NSString* endpoint;
 @property (nonatomic, strong) NSString* pushendpoint;
+=======
+
+@interface ViewController ()
+
+>>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 @end
 
 @implementation ViewController
@@ -26,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
     self = [super init];
     if(self){
         self.offsetValue = 0;
@@ -123,12 +130,18 @@
     return [@"tcp://192.168.20.12:" stringByAppendingString:text];
 }
 
+=======
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
+>>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+<<<<<<< HEAD
 #pragma mark - Helper functions
 
 -(float) convertToDegrees:(float) radians {
@@ -179,3 +192,6 @@
     return self;
 }
 @end
+=======
+@end
+>>>>>>> 0148c8180334383e24cc235ae98b2da376b3d120
