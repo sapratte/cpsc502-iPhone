@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
+@property (retain, nonatomic) IBOutlet UITextView *txtStatus;
+@property (retain, nonatomic) IBOutlet UITextField *userSpecifiedID;
 
 @end
