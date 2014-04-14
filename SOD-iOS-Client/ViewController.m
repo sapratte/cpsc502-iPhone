@@ -45,6 +45,7 @@
         [self requestNewEndPoints];
         NSLog(@"%@", self.pairendpoint);
         NSLog(@"%@", self.requestendpoint);
+        [self sendDeviceInfoToServer];
         [self startMotionManager];
 	}
     
@@ -106,6 +107,36 @@
     NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"updateOrientation", @"requestType", requestData, @"additionalInfo", nil];
     [self sendData:requestCapsule];
+}
+
+- (IBAction)getDevicesFromServer:(id)sender {
+    [self getDevicesWithSelection:@"all"];
+}
+
+- (IBAction)getDevicesInView:(id)sender {
+    [self getDevicesWithSelection:@"inView"];
+}
+
+- (IBAction)unpairAllPeople:(id)sender {
+    self.txtStatus.text = @"Unpairing all people...";
+    NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", nil];
+    
+    NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"unpairAllPeople", @"requestType", requestData, @"additionalInfo", nil];
+    NSDictionary *reply = [self sendDataWithReply:requestCapsule andEndpoint:self.requestendpoint];
+    self.txtStatus.text = [@"Unpair all people: " stringByAppendingString:reply[@"status"]];
+}
+
+- (void) sendDeviceInfoToServer{
+    self.txtStatus.text = @"Unpairing all people...";
+    NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", @"16", @"height", @"11.47", @"width", nil];
+    
+    NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"initDevice", @"requestType", requestData, @"additionalInfo", nil];
+    NSDictionary *reply = [self sendDataWithReply:requestCapsule andEndpoint:self.requestendpoint];
+    self.txtStatus.text = [@"Init Device: " stringByAppendingString:reply[@"status"]];
 }
 
 - (void)sendData: (NSDictionary*) requestCapsule
@@ -186,10 +217,12 @@
         self.txtStatus.text = outputString;
     }
 }
-- (IBAction)getDevicesFromServer:(id)sender {
-    self.txtStatus.text = @"Getting devices...";
+
+-(void)getDevicesWithSelection:(NSString*) selection
+{
+    self.txtStatus.text = [NSString stringWithFormat:@"Getting %@ devices...", selection];
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", nil];
+                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", selection, @"selection", nil];
     
     NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"getDevices", @"requestType", requestData, @"additionalInfo", nil];
