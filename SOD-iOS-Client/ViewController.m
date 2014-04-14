@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
-#import <zeromq-ios.framework/Headers/zmq.h>
-#import "ZMQObjC.h"
+//#import <zeromq-ios.framework/Headers/zmq.h>
+//#import "ZMQObjC.h"
 #import <CoreMotion/CoreMotion.h>
+#import "SocketIO.h"
+
 
 #define ORIENTATION_UPDATE_THRESHOLD 3.0
 #define ORIENTATION_UPDATE_INTERVAL 1.0f/5.0f
@@ -21,9 +23,13 @@
 @property (nonatomic, strong) NSString* pairendpoint;
 @property (nonatomic, strong) NSString* requestendpoint;
 @property (nonatomic, strong) NSString* OwnerID;
+@property (nonatomic, strong) SocketIO *socketIO;
 @end
 
+
 @implementation ViewController
+
+typedef void(^MyResponseCallback)(NSDictionary* response);
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -40,13 +46,24 @@
         self.offsetValue = 0;
         self.userSpecifiedID.delegate = self;
     }
-    self.endpoint = @"tcp://192.168.20.12:5570";
+    //***************
+    //self.endpoint = @"tcp://192.168.20.12:5570";
+    //***************
+
+    self.socketIO = [[SocketIO alloc] initWithDelegate:self];
+    [self.socketIO connectToHost:@"192.168.20.12" onPort:3000];
+    
     @autoreleasepool{
-        [self requestNewEndPoints];
-        NSLog(@"%@", self.pairendpoint);
-        NSLog(@"%@", self.requestendpoint);
+        //***************
+        //[self requestNewEndPoints];
+        //***************
+
+        //NSLog(@"%@", self.pairendpoint);
+        //NSLog(@"%@", self.requestendpoint);
+        //***************
         [self sendDeviceInfoToServer];
         [self startMotionManager];
+        //***************
 	}
     
 	// Do any additional setup after loading the view, typically from a nib.
@@ -79,6 +96,13 @@
         }
     }];
 }
+- (IBAction)sendTestData:(id)sender {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:@"test1" forKey:@"key1"];
+    [dict setObject:@"test2" forKey:@"key2"];
+    
+    [self.socketIO sendEvent:@"message" withData:@"hello"];
+}
 
 - (IBAction)setPairingState:(id)sender {
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -86,7 +110,7 @@
     
     NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"setPairingState", @"requestType", requestData, @"additionalInfo", nil];
-    [self sendData:requestCapsule];
+    [self sendData:requestCapsule andKeyword:@"setPairingState"];
     self.txtStatus.text = @"Pairing State clicked";
 }
 - (IBAction)unpairDevice:(id)sender {
@@ -95,7 +119,8 @@
     
     NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"unpairDevice", @"requestType", requestData, @"additionalInfo", nil];
-    [self sendData:requestCapsule];
+    [self sendData:requestCapsule andKeyword:@"unpairDevice"];
+
     self.txtStatus.text = @"Unpair clicked";
 }
 
@@ -106,7 +131,7 @@
             
     NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"updateOrientation", @"requestType", requestData, @"additionalInfo", nil];
-    [self sendData:requestCapsule];
+    [self sendData:requestCapsule andKeyword:@"sendOrientation"];
 }
 
 - (IBAction)getDevicesFromServer:(id)sender {
@@ -124,73 +149,47 @@
     
     NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"unpairAllPeople", @"requestType", requestData, @"additionalInfo", nil];
-    NSDictionary *reply = [self sendDataWithReply:requestCapsule andEndpoint:self.requestendpoint];
-    self.txtStatus.text = [@"Unpair all people: " stringByAppendingString:reply[@"status"]];
+    MyResponseCallback requestCallback = ^(id response)
+    {
+        self.txtStatus.text = [@"Unpair all people: " stringByAppendingString:response[@"status"]];
+    };
+    
+    [self sendDataWithReply:requestCapsule andKeyword:@"unpairAllPeople" withCallBack:requestCallback];
+    
 }
 
 - (void) sendDeviceInfoToServer{
-    self.txtStatus.text = @"Unpairing all people...";
+    self.txtStatus.text = @"Sending device info to server...";
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", @"16", @"height", @"11.47", @"width", nil];
+                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", @"50", @"height", @"50", @"width", nil];
     
     NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"initDevice", @"requestType", requestData, @"additionalInfo", nil];
-    NSDictionary *reply = [self sendDataWithReply:requestCapsule andEndpoint:self.requestendpoint];
-    self.txtStatus.text = [@"Init Device: " stringByAppendingString:reply[@"status"]];
+    
+    MyResponseCallback requestCallback = ^(id response)
+    {
+        NSLog(@"status of send device info: %@", [response objectForKey:@"status"]);
+    };
+    
+    [self sendDataWithReply:requestCapsule andKeyword:@"sendDeviceInfoToServer" withCallBack:requestCallback];
+    //self.txtStatus.text = [@"Init Device: " stringByAppendingString:reply[@"status"]];
 }
 
-- (void)sendData: (NSDictionary*) requestCapsule
+
+- (void)sendData: (NSDictionary*) requestCapsule andKeyword:(NSString*) keyword
 {
-    ZMQContext *ctx = [[ZMQContext alloc] initWithIOThreads:1];
-    ZMQSocket *pairSocket = [ctx socketWithType:ZMQ_PUSH];
-    int diditwork = zmq_setsockopt(pairSocket, ZMQ_SNDTIMEO, 0, 1);
-    diditwork = zmq_setsockopt((void*)pairSocket, ZMQ_SNDTIMEO, (void*)0, sizeof((void*)0));
-    NSLog(@"%d", diditwork);
-    
-    NSLog(@"%d", errno);
-    BOOL didConnectPush = [pairSocket connectToEndpoint:self.pairendpoint];
-    if (!didConnectPush) {
-        NSLog(@"*** Failed to connect to endpoint [%@].", self.pairendpoint);
-    }
-    else{
-        NSLog(@"*** CONNECTED TO PUSH [%@].", self.pairendpoint);
-        NSError* error =  nil;
-        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:requestCapsule
-                                                           options:NSJSONWritingPrettyPrinted error: &error];
-        NSString* requestDataString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",requestDataString);
-        NSData *request = [requestDataString dataUsingEncoding:NSUTF8StringEncoding];
-        @try{
-            if([pairSocket sendData:request withFlags:0]){
-                NSLog(@"send successful");
-                [ctx closeSockets];
-                [ctx terminate];
-                NSLog(@"nope");
-                return;
-            }
-            else{
-                NSLog(@"KABOOM");
-                [ctx closeSockets];
-                [ctx terminate];
-                return;
-            }
-        }
-        @catch(NSError *er){
-            NSLog(@"error?");
-            self.txtStatus.text = er.description;
-        }
-        
-        [ctx closeSockets];
-        [ctx terminate];
-        NSLog(@"does it ever reach here");
-    }
+    //NSData* jsonData = [NSJSONSerialization dataWithJSONObject:requestCapsule
+                                                           //options:NSJSONWritingPrettyPrinted error: &error];
+    //NSString* requestDataString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    //NSLog(@"%@",requestDataString);
+    //NSData *request = [requestDataString dataUsingEncoding:NSUTF8StringEncoding];
+    [self.socketIO sendEvent:keyword withData:requestCapsule];
 }
 
 - (IBAction)resetEndPointsAndRestartOrientation:(id)sender {
     self.txtStatus.text = @"Reset clicked";
     [self.manager stopDeviceMotionUpdates];
     self.manager = nil;
-    [self requestNewEndPoints];
     [self startMotionManager];
 }
 - (IBAction)getPeopleFromServer:(id)sender {
@@ -200,22 +199,26 @@
     
     NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"getPeople", @"requestType", requestData, @"additionalInfo", nil];
-    id obj = [self sendDataWithReply:requestCapsule andEndpoint:self.requestendpoint];
-    NSString *outputString = @"";
-    if([obj isKindOfClass:[NSDictionary class]]){
-        NSDictionary* dict = obj;
-        NSLog(@"Count: %d",[dict count]);
-        NSLog(@"ID: %@, Location: %@, Pair Status: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Location"], [dict objectForKey:@"TrackedBy"]);
-        outputString = @"ID: %@, Location: %@, Pair Status: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Location"], [dict objectForKey:@"OwnedDeviceID"];
-    }
-    else{
-        NSArray* arr = obj;
-        for (int i=0; i<[arr count]; i++) {
-            NSDictionary* dict = [arr objectAtIndex:i];
-            outputString = [outputString stringByAppendingString:[NSString stringWithFormat:@"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnedDeviceID: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnedDeviceID"]]];
+    MyResponseCallback requestCallback = ^(id reply)
+    {
+        NSString *outputString = @"";
+        if([reply isKindOfClass:[NSDictionary class]]){
+            NSDictionary* dict = reply;
+            NSLog(@"Count: %d",[dict count]);
+            NSLog(@"ID: %@, Location: %@, Pair Status: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Location"], [dict objectForKey:@"TrackedBy"]);
+            outputString = @"ID: %@, Location: %@, Pair Status: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Location"], [dict objectForKey:@"OwnedDeviceID"];
         }
-        self.txtStatus.text = outputString;
-    }
+        else{
+            NSArray* arr = reply;
+            for (int i=0; i<[arr count]; i++) {
+                NSDictionary* dict = [arr objectAtIndex:i];
+                outputString = [outputString stringByAppendingString:[NSString stringWithFormat:@"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnedDeviceID: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnedDeviceID"]]];
+            }
+            self.txtStatus.text = outputString;
+        }
+    };
+    
+    [self sendDataWithReply:requestCapsule andKeyword:@"getPeopleFromServer" withCallBack:requestCallback];
 }
 
 -(void)getDevicesWithSelection:(NSString*) selection
@@ -226,22 +229,27 @@
     
     NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"getDevices", @"requestType", requestData, @"additionalInfo", nil];
-    id obj = [self sendDataWithReply:requestCapsule andEndpoint:self.requestendpoint];
-    NSString *outputString = @"";
-    if([obj isKindOfClass:[NSDictionary class]]){
-        NSDictionary* dict = obj;
-        NSLog(@"Count: %d",[dict count]);
-        NSLog(@"ID: %@, Orientation: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Orientation"]);
-        outputString = @"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnerID: %@",[dict objectForKey:@"ID"], [dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnerID"];
-    }
-    else{
-        NSArray* arr = obj;
-        for (int i=0; i<[arr count]; i++) {
-            NSDictionary* dict = [arr objectAtIndex:i];
-            outputString = [outputString stringByAppendingString:[NSString stringWithFormat:@"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnerID: %@",[dict objectForKey:@"ID"], [dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnerID"]]];
-        }
-    self.txtStatus.text = outputString;
-    }
+    
+    MyResponseCallback requestCallback = ^(id reply)
+    {
+        NSString *outputString = @"";
+         if([reply isKindOfClass:[NSDictionary class]]){
+             NSDictionary* dict = reply;
+             NSLog(@"Count: %d",[dict count]);
+             NSLog(@"ID: %@, Orientation: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Orientation"]);
+             outputString = @"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnerID: %@",[dict objectForKey:@"ID"], [dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnerID"];
+         }
+         else{
+             NSArray* arr = reply;
+             for (int i=0; i<[arr count]; i++) {
+                 NSDictionary* dict = [arr objectAtIndex:i];
+                 outputString = [outputString stringByAppendingString:[NSString stringWithFormat:@"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnerID: %@",[dict objectForKey:@"ID"], [dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnerID"]]];
+             }
+         }
+         self.txtStatus.text = outputString;
+    };
+    
+    [self sendDataWithReply:requestCapsule andKeyword:@"getDevicesWithSelection" withCallBack:requestCallback];
 }
 - (IBAction)forcePairRequest:(id)sender {
     self.txtStatus.text = @"Forcing pair...";
@@ -250,53 +258,27 @@
     
     NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
                                     @"forcePair", @"requestType", requestData, @"additionalInfo", nil];
-    NSDictionary *reply = [self sendDataWithReply:requestCapsule andEndpoint:self.requestendpoint];
-    self.OwnerID = reply[@"ownerID"];
-    self.txtStatus.text = [[[@"Force pair with " stringByAppendingString:self.userSpecifiedID.text] stringByAppendingString:@": "] stringByAppendingString:reply[@"status"]];
+    MyResponseCallback requestCallback = ^(id reply){
+        self.OwnerID = reply[@"ownerID"];
+        self.txtStatus.text = [[[@"Force pair with " stringByAppendingString:self.userSpecifiedID.text] stringByAppendingString:@": "] stringByAppendingString:reply[@"status"]];
+    };
+    [self sendDataWithReply:requestCapsule andKeyword:@"forcePairRequest" withCallBack:requestCallback];
 }
 
-- (void)requestNewEndPoints
+- (void)sendDataWithReply: (NSDictionary*) requestCapsule andKeyword: (NSString*) keyword withCallBack:(MyResponseCallback)callback
 {
-    NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", nil];
-    
-    NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"requestPorts", @"requestType", requestData, @"additionalInfo", nil];
-    NSDictionary *reply = [self sendDataWithReply:requestCapsule andEndpoint:self.endpoint];
-    self.pairendpoint = [@"tcp://192.168.20.12:" stringByAppendingString:[reply[@"pairPort"] stringValue]];
-    self.requestendpoint = [@"tcp://192.168.20.12:" stringByAppendingString:[reply[@"requestPort"] stringValue]];
-}
+    //NSData* jsonData = [NSJSONSerialization dataWithJSONObject:requestCapsule
+      //                                                 options:NSJSONWritingPrettyPrinted error: &error];
+    //NSString* requestDataString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    //NSLog(@"%@",requestDataString);
+    //NSData *request = [requestDataString dataUsingEncoding:NSUTF8StringEncoding];
 
-- (id)sendDataWithReply: (NSDictionary*) requestCapsule andEndpoint: (NSString*) endPoint
-{
-    ZMQContext *ctx = [[ZMQContext alloc] initWithIOThreads:1];
-    ZMQSocket *requester = [ctx socketWithType:ZMQ_REQ];
-    //NSError *error;
-    BOOL didConnect = [requester connectToEndpoint:endPoint];
-    if (!didConnect) {
-		NSLog(@"*** Failed to connect to endpoint [%@].", endPoint);
-    }
-    else{
-        NSLog(@"*** CONNECTED TO PUSH [%@].", self.pairendpoint);
-        NSError* error =  nil;
-        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:requestCapsule
-                                                           options:NSJSONWritingPrettyPrinted error: &error];
-        NSString* requestDataString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", requestDataString);
-        NSData *request = [requestDataString dataUsingEncoding:NSUTF8StringEncoding];
-        
-        NSLog(@"Sending request");
-        [requester sendData:request withFlags:0];
-        
-        NSLog(@"Waiting for reply");
-        NSData *reply = [requester receiveDataWithFlags:0];
-        id obj = [NSJSONSerialization
-                              JSONObjectWithData:reply options:kNilOptions error:&error];
-        [ctx closeSockets];
-        [ctx terminate];
-        return obj;
-    }
-    return NULL;
+    SocketIOCallback cb = ^(id argsData){
+        callback(argsData);
+    };
+    [self.socketIO sendEvent:keyword withData:requestCapsule andAcknowledge:cb];
+    //while(!finished){}
+    //return response;
 }
 
 - (void)didReceiveMemoryWarning
