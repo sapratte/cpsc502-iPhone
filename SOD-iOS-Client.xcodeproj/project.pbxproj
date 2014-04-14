@@ -11,10 +11,10 @@
 		21B53C5518D22A9600136835 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C5418D22A9600136835 /* CoreGraphics.framework */; };
 		21B53C5718D22A9600136835 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C5618D22A9600136835 /* UIKit.framework */; };
 		21B53C5D18D22A9600136835 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C5B18D22A9600136835 /* InfoPlist.strings */; };
-		21B53C5F18D22A9600136835 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C5E18D22A9600136835 /* main.m */; };
-		21B53C6318D22A9600136835 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C6218D22A9600136835 /* AppDelegate.m */; };
+		21B53C5F18D22A9600136835 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C5E18D22A9600136835 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		21B53C6318D22A9600136835 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C6218D22A9600136835 /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		21B53C6618D22A9600136835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C6418D22A9600136835 /* Main.storyboard */; };
-		21B53C6918D22A9600136835 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C6818D22A9600136835 /* ViewController.m */; };
+		21B53C6918D22A9600136835 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C6818D22A9600136835 /* ViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		21B53C6B18D22A9600136835 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C6A18D22A9600136835 /* Images.xcassets */; };
 		21B53C7218D22A9600136835 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C7118D22A9600136835 /* XCTest.framework */; };
 		21B53C7318D22A9600136835 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C5218D22A9600136835 /* Foundation.framework */; };
@@ -22,9 +22,9 @@
 		21B53C7C18D22A9600136835 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C7A18D22A9600136835 /* InfoPlist.strings */; };
 		21B53C7E18D22A9600136835 /* SOD_iOS_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C7D18D22A9600136835 /* SOD_iOS_ClientTests.m */; };
 		21B53C8818D22AB100136835 /* zeromq-ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C8718D22AB100136835 /* zeromq-ios.framework */; };
-		21B53C8F18D23A0D00136835 /* ZMQContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C8B18D23A0D00136835 /* ZMQContext.m */; };
+		21B53C8F18D23A0D00136835 /* ZMQContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C8B18D23A0D00136835 /* ZMQContext.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		21B53C9018D23A0D00136835 /* ZMQContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C8B18D23A0D00136835 /* ZMQContext.m */; };
-		21B53C9118D23A0D00136835 /* ZMQSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C8E18D23A0D00136835 /* ZMQSocket.m */; };
+		21B53C9118D23A0D00136835 /* ZMQSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C8E18D23A0D00136835 /* ZMQSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		21B53C9218D23A0D00136835 /* ZMQSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C8E18D23A0D00136835 /* ZMQSocket.m */; };
 /* End PBXBuildFile section */
 
@@ -413,7 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -441,7 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -525,6 +525,7 @@
 				21B53C8318D22A9600136835 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21B53C8418D22A9600136835 /* Build configuration list for PBXNativeTarget "SOD-iOS-ClientTests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +534,7 @@
 				21B53C8618D22A9600136835 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
