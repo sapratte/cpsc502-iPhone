@@ -37,6 +37,7 @@
 		21B53C7418D22A9600136835 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C5618D22A9600136835 /* UIKit.framework */; };
 		21B53C7C18D22A9600136835 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C7A18D22A9600136835 /* InfoPlist.strings */; };
 		21B53C7E18D22A9600136835 /* SOD_iOS_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C7D18D22A9600136835 /* SOD_iOS_ClientTests.m */; };
+		21DEB60F1924057F002B9603 /* SOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DEB60E1924057F002B9603 /* SOD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		21B53C7918D22A9600136835 /* SOD-iOS-ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOD-iOS-ClientTests-Info.plist"; sourceTree = "<group>"; };
 		21B53C7B18D22A9600136835 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21B53C7D18D22A9600136835 /* SOD_iOS_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOD_iOS_ClientTests.m; sourceTree = "<group>"; };
+		21DEB60D1924057F002B9603 /* SOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOD.h; sourceTree = "<group>"; };
+		21DEB60E1924057F002B9603 /* SOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +206,8 @@
 				21B53C5418D22A9600136835 /* CoreGraphics.framework */,
 				21B53C5618D22A9600136835 /* UIKit.framework */,
 				21B53C7118D22A9600136835 /* XCTest.framework */,
+				21DEB60D1924057F002B9603 /* SOD.h */,
+				21DEB60E1924057F002B9603 /* SOD.m */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -303,7 +308,7 @@
 		21B53C4718D22A9600136835 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "ASE Group";
 				TargetAttributes = {
 					21B53C4E18D22A9600136835 = {
@@ -370,6 +375,7 @@
 				21B53C6918D22A9600136835 /* ViewController.m in Sources */,
 				21B53C6318D22A9600136835 /* AppDelegate.m in Sources */,
 				217E0F0F18FBD75F00BACE6A /* SocketIOPacket.m in Sources */,
+				21DEB60F1924057F002B9603 /* SOD.m in Sources */,
 				217E0F1318FBD75F00BACE6A /* SRWebSocket.m in Sources */,
 				21B53C5F18D22A9600136835 /* main.m in Sources */,
 				217E0F0E18FBD75F00BACE6A /* SocketIOJSONSerialization.m in Sources */,
@@ -428,7 +434,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -468,7 +473,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -557,7 +561,6 @@
 		21B53C8518D22A9600136835 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SOD-iOS-Client.app/SOD-iOS-Client";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -580,7 +583,6 @@
 		21B53C8618D22A9600136835 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SOD-iOS-Client.app/SOD-iOS-Client";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

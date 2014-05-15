@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -26,7 +26,7 @@
                                     <color key="titleShadowColor" red="0.38715843979999998" green="1" blue="0.71338066339999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="setPairingState:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pgp-w9-KEI"/>
+                                    <action selector="setPairingState:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J3j-K7-vZr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJR-Si-Q93">
@@ -39,7 +39,7 @@
                                     <color key="titleShadowColor" red="0.38715843979999998" green="1" blue="0.71338066339999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="getDevicesFromServer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Igu-cN-Cuk"/>
+                                    <action selector="getDevicesFromServer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dQ6-1r-drQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UB-gs-Qxa">
@@ -52,7 +52,7 @@
                                     <color key="titleShadowColor" red="0.38715843979999998" green="1" blue="0.71338066339999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="getDevicesInView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vcn-5Q-p4k"/>
+                                    <action selector="getDevicesInView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gAa-My-Uy0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJ1-Po-PPB">
@@ -65,7 +65,7 @@
                                     <color key="titleShadowColor" red="0.38715843979999998" green="1" blue="0.71338066339999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="unpairAllPeople:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XEM-rR-qdY"/>
+                                    <action selector="unpairAllPeople:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zki-i0-KsW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0u-3w-v5N">
@@ -78,20 +78,20 @@
                                     <color key="titleShadowColor" red="0.38715843979999998" green="1" blue="0.71338066339999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="forcePairRequest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C9k-xv-t3O"/>
+                                    <action selector="forcePairRequest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nhy-gK-QJv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdT-9G-bT6">
                                 <rect key="frame" x="59" y="31" width="209" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.077070010290000004" green="1" blue="0.61188641330000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Reset Endpoint">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Restart CMMotionManager">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" red="0.38715843979999998" green="1" blue="0.71338066339999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="resetEndPointsAndRestartOrientation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bZa-8a-9tt"/>
+                                    <action selector="restartMotionManager:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GWK-6d-qSf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqi-Wl-Eiz">
@@ -104,20 +104,7 @@
                                     <color key="titleShadowColor" red="0.38715843979999998" green="1" blue="0.71338066339999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="getPeopleFromServer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LpC-11-n33"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8W0-z8-2cW">
-                                <rect key="frame" x="280" y="338" width="209" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.077070010290000004" green="1" blue="0.61188641330000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Send Test Data">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <color key="titleShadowColor" red="0.38715843979999998" green="1" blue="0.71338066339999995" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendTestData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1c0-ku-7Xs"/>
+                                    <action selector="getPeopleFromServer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0sd-cM-Iiq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apI-X8-zvo">
@@ -130,7 +117,7 @@
                                     <color key="titleShadowColor" red="0.38715843979999998" green="1" blue="0.71338066339999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="unpairDevice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OrW-DG-MIM"/>
+                                    <action selector="unpairDevice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QDt-Li-jzv"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3X-2P-AZF">
