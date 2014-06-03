@@ -28,6 +28,7 @@
 - (void) setPairingState;
 - (void) unpairDevice;
 - (void) unpairAllDevices;
+-(void)sendString:(NSString*) string withSelection: (NSString*) selection andCallBack: (void(^)(id response))completionCB;
 @property (nonatomic, strong) SocketIO *SocketIO;
 @property float OffsetValue;
 @property (nonatomic, strong) NSString* OwnerID;

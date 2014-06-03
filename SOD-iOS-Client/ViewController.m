@@ -16,13 +16,6 @@
 @implementation ViewController
 typedef void(^MyResponseCallback)(NSDictionary* response);
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"hey" message:@"boss" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-    [alert show];
-    return YES;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -44,6 +37,12 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 }
 
 - (IBAction)sendTestData:(id)sender {
+    NSString* stringData = self.txtTestData.text;
+    MyResponseCallback requestCallback = ^(id reply)
+    {
+        self.txtStatus.text = [reply objectForKey:@"status"];
+    };
+    [self.SOD sendString:stringData withSelection:@"inView" andCallBack:requestCallback];
 }
 
 - (IBAction)setPairingState:(id)sender {

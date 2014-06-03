@@ -54,7 +54,7 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
             
             
             // change orientation according to offset value
-            self.degrees += self.OffsetValue;
+            self.degrees = self.degrees - self.OffsetValue;
             self.degrees = [self normalizeDegrees:self.degrees];
             
             
@@ -76,7 +76,7 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 
 - (void) calibrateDeviceAngle
 {
-    self.OffsetValue = self.degrees;
+    self.OffsetValue = [self normalizeDegrees:(self.OffsetValue+self.degrees)];
 }
 
 - (void) restartMotionManager
@@ -129,6 +129,13 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
         callback(argsData);
     };
     [self.SocketIO sendEvent:keyword withData:requestCapsule andAcknowledge:cb];
+}
+
+-(void)sendString:(NSString*) string withSelection: (NSString*) selection andCallBack: (void(^)(id response))completionCB
+{
+    NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", selection, @"selection", string, @"data", nil];
+    [self sendDataWithReply:requestData andKeyword:@"sendStringToDevicesWithSelection" withCallBack:completionCB];
 }
 
 -(void)getDevicesWithSelection:(NSString*) selection withCallBack: (void(^)(id response))completionCB
