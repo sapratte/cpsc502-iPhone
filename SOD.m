@@ -14,7 +14,6 @@
 #define ORIENTATION_UPDATE_INTERVAL 1.0f/5.0f
 
 @interface SOD (Private)
-@property (nonatomic, strong) CMMotionManager *Manager;
 @end
 
 @implementation SOD
@@ -22,12 +21,18 @@
 
 typedef void(^MyResponseCallback)(NSDictionary* response);
 
-- (id) initWithDelegate:(id<SocketIODelegate>)delegate
+- (id) initWithDelegate:(id<SocketIODelegate>)delegate andAddress:(NSString*) address andPort:(int)port
 {
+   
     self = [super init];
     if (self){
+       
         self.SocketIO = [[SocketIO alloc] initWithDelegate:delegate];
-        [self.SocketIO connectToHost:@"192.168.0.104" onPort:3000];
+        self.address = address;
+        self.port = port;
+        NSLog(address);
+        NSLog(@"Port: %d",(int)port);
+        [self.SocketIO connectToHost:address onPort:port];
     }
     @autoreleasepool{
         [self sendDeviceInfoToServer];
@@ -45,20 +50,33 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
             
             NSLog(@"Inside Motion Update");
             //Compute current orientation (in degrees) and diff from previous value
-            float degrees = [self convertToDegrees:motion.attitude.yaw];
+            self.degrees = [self convertToDegrees:motion.attitude.yaw];
             
             
             // change orientation according to offset value
-            degrees = self.OffsetValue + degrees;
-            degrees = [self normalizeDegrees:degrees];
+            self.degrees += self.OffsetValue;
+            self.degrees = [self normalizeDegrees:self.degrees];
             
-            float diff = fabs(degrees - 0);//lastSentOrientationValue);
-            NSLog(@"attitude.yaw: %.04f, degrees: %.04f; diff: %f", motion.attitude.yaw, degrees, diff);
             
-            NSNumber *orientation = @(degrees);
+            float diff = fabs(self.degrees - 0);//lastSentOrientationValue);
+            NSLog(@"attitude.yaw: %.04f, degrees: %.04f; diff: %f", motion.attitude.yaw, self.degrees, diff);
+            
+            NSNumber *orientation = @(self.degrees);
             [self sendOrientation:orientation];
         }
     }];
+}
+
+- (void) reconnectToServer
+{
+    [self.SocketIO disconnect];
+    [self.SocketIO connectToHost:self.address onPort:self.port];
+    [self sendDeviceInfoToServer];
+}
+
+- (void) calibrateDeviceAngle
+{
+    self.OffsetValue = self.degrees;
 }
 
 - (void) restartMotionManager
@@ -78,28 +96,25 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 
 - (void) sendDeviceInfoToServer{
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", @"50", @"height", @"50", @"width", nil];
-    
-    NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"initDevice", @"requestType", requestData, @"additionalInfo", nil];
+                                    [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID",
+                                    @"iPad", @"deviceType",
+                                    @"50", @"height",
+                                    @"50", @"width",
+                                    nil];
     
     MyResponseCallback requestCallback = ^(id response)
     {
         NSLog(@"status of send device info: %@", [response objectForKey:@"status"]);
     };
     
-    [self sendDataWithReply:requestCapsule andKeyword:@"sendDeviceInfoToServer" withCallBack:requestCallback];
-    //self.txtStatus.text = [@"Init Device: " stringByAppendingString:reply[@"status"]];
+    [self sendDataWithReply:requestData andKeyword:@"registerDevice" withCallBack:requestCallback];
 }
 
 - (void)sendOrientation: (NSNumber*) orientation
 {
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", orientation, @"orientation", nil];
-    
-    NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"updateOrientation", @"requestType", requestData, @"additionalInfo", nil];
-    [self sendData:requestCapsule andKeyword:@"sendOrientation"];
+                                    [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", orientation, @"orientation", nil];
+    [self sendData:requestData andKeyword:@"updateOrientation"];
 }
 
 
@@ -121,101 +136,63 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", selection, @"selection", nil];
     
-    NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"getDevices", @"requestType", requestData, @"additionalInfo", nil];
-    
-    MyResponseCallback requestCallback = ^(id reply)
-    {
-        NSString *outputString = @"";
-        if([reply isKindOfClass:[NSDictionary class]]){
-            NSDictionary* dict = reply;
-            outputString = @"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnerID: %@",[dict objectForKey:@"ID"], [dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnerID"];
-            completionCB(reply);
-        }
-        else{
-            NSArray* arr = reply;
-            for (int i=0; i<[arr count]; i++) {
-                NSDictionary* dict = [arr objectAtIndex:i];
-                outputString = [outputString stringByAppendingString:[NSString stringWithFormat:@"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnerID: %@",[dict objectForKey:@"ID"], [dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnerID"]]];
-            }
-            completionCB(reply);
-        }
-    };
-    
-    [self sendDataWithReply:requestCapsule andKeyword:@"getDevicesWithSelection" withCallBack:requestCallback];
+    [self sendDataWithReply:requestData andKeyword:@"getDevicesWithSelection" withCallBack:completionCB];
 }
 
+
+/*
+ Try to pair with one of the people that are being tracked with ID.
+ */
 -(NSString*) tryPairWithID:(NSString*) personID
 {
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", personID, @"personID", nil];
-    NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"forcePair", @"requestType", requestData, @"additionalInfo", nil];
     
     MyResponseCallback requestCallback = ^(id reply){
         self.OwnerID = reply[@"ownerID"];
     };
-    [self sendDataWithReply:requestCapsule andKeyword:@"forcePairRequest" withCallBack:requestCallback];
+    [self sendDataWithReply:requestData andKeyword:@"forcePairRequest" withCallBack:requestCallback];
     return self.OwnerID;
 }
 
-- (NSDictionary*) getAllTrackedPeople
+- (void) getAllTrackedPeoplewithCallBack: (void(^)(id response))completionCB
 {
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", nil];
-    
-    NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"getPeople", @"requestType", requestData, @"additionalInfo", nil];
-    __block NSDictionary* returnValue;
-    MyResponseCallback requestCallback = ^(id reply)
-    {
-        if([reply isKindOfClass:[NSDictionary class]]){
-            returnValue = reply;
-        }
-        else{
-            //removed array iteration, maybe add conversion before return if REPLY IS AN ARRAY
-            //<insert code to convert array to nsdictionary>
-            returnValue = reply;
-        }
-    };
-    
-    [self sendDataWithReply:requestCapsule andKeyword:@"getPeopleFromServer" withCallBack:requestCallback];
-    return returnValue;
+    [self sendDataWithReply:requestData andKeyword:@"getPeopleFromServer" withCallBack:completionCB];
 }
 
 - (void) unpairDevice
 {
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", self.OwnerID, @"personID", nil];
-    
-    NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"unpairDevice", @"requestType", requestData, @"additionalInfo", nil];
-    [self sendData:requestCapsule andKeyword:@"unpairDevice"];
+    [self sendData:requestData andKeyword:@"unpairDevice"];
 }
 
+- (void) unpairAllDevices
+{
+    NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", self.OwnerID, @"personID", nil];
+    [self sendData:requestData andKeyword:@"unpairAllDevices"];
+}
+	
 - (void) setPairingState
 {
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", nil];
-    
-    NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"setPairingState", @"requestType", requestData, @"additionalInfo", nil];
-    [self sendData:requestCapsule andKeyword:@"setPairingState"];
+    [self sendData:requestData andKeyword:@"setPairingState"];
 }
 
 - (NSString*) unpairEveryone
 {
     NSDictionary* requestData = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", nil];
-    
-    NSDictionary* requestCapsule = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"unpairAllPeople", @"requestType", requestData, @"additionalInfo", nil];
     __block NSString* status;
     MyResponseCallback requestCallback = ^(id response)
     {
         status = response[@"status"];
     };
-    [self sendDataWithReply:requestCapsule andKeyword:@"unpairAllPeople" withCallBack:requestCallback];
+    [self sendDataWithReply:requestData andKeyword:@"unpairAllPeople" withCallBack:requestCallback];
     return status;
 }
 

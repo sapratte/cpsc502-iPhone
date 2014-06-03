@@ -27,12 +27,23 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 {
     [super viewDidLoad];
     self = [super init];
-    self.SOD = [[SOD alloc] initWithDelegate:self];
+    self.SOD = [[SOD alloc] initWithDelegate:self andAddress:@"192.168.20.12" andPort:3000];
     if(self){
-        self.userSpecifiedID.delegate = self;
+        self.txtTestData.delegate = self;
     }
     
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (IBAction)reconnectToServer:(id)sender {
+    [self.SOD reconnectToServer];
+}
+
+- (IBAction)calibrateDeviceAngle:(id)sender {
+    [self.SOD calibrateDeviceAngle];
+}
+
+- (IBAction)sendTestData:(id)sender {
 }
 
 - (IBAction)setPairingState:(id)sender {
@@ -45,9 +56,13 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     [self.SOD unpairDevice];
 }
 
+- (IBAction)unpairAllDevices:(id)sender {
+    [self.SOD unpairAllDevices];
+}
+
 - (IBAction)unpairAllPeople:(id)sender {
     self.txtStatus.text = @"Unpairing all people...";
-    self.txtStatus.text = [self.SOD unpairEveryone];
+    [self.SOD unpairEveryone];
 }
 
 - (IBAction)restartMotionManager:(id)sender {
@@ -57,42 +72,32 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 
 - (IBAction)getPeopleFromServer:(id)sender {
     self.txtStatus.text = @"Getting people...";
-    NSString *outputString = @"";
-    id reply = [self.SOD getAllTrackedPeople];
-    if([reply isKindOfClass:[NSDictionary class]]){
-        NSDictionary* dict = reply;
-        outputString = @"ID: %@, Location: %@, Pair Status: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Location"], [dict objectForKey:@"OwnedDeviceID"];
-    }
-    else{
-        NSArray* arr = reply;
-        for (int i=0; i<[arr count]; i++) {
-            NSDictionary* dict = [arr objectAtIndex:i];
-            outputString = [outputString stringByAppendingString:[NSString stringWithFormat:@"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnedDeviceID: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnedDeviceID"]]];
+    MyResponseCallback requestCallback = ^(id reply)
+    {
+        NSString *outputString = @"";
+        if([reply isKindOfClass:[NSDictionary class]]){
+            NSDictionary* dict = reply;
+            outputString = @"ID: %@, Location: %@, Pair Status: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Location"], [dict objectForKey:@"OwnedDeviceID"];
         }
-    }
-    self.txtStatus.text = outputString;
-}
-
-- (IBAction)forcePairRequest:(id)sender {
-    self.txtStatus.text = @"Forcing pair...";
-    NSString* ownerID = [self.SOD tryPairWithID:self.userSpecifiedID.text];
-    self.txtStatus.text = [[[@"Force pair with " stringByAppendingString:self.userSpecifiedID.text] stringByAppendingString:@": "] stringByAppendingString:ownerID];
+        else{
+            NSArray* arr = reply;
+            for (int i=0; i<[arr count]; i++) {
+                NSDictionary* dict = [arr objectAtIndex:i];
+                outputString = [outputString stringByAppendingString:[NSString stringWithFormat:@"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnedDeviceID: %@",[dict objectForKey:@"ID"],[dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnedDeviceID"]]];
+            }
+        }
+        self.txtStatus.text = outputString;
+    };
+    [self.SOD getAllTrackedPeoplewithCallBack:requestCallback];
 }
 
 - (IBAction)getDevicesFromServer:(id)sender {
     MyResponseCallback requestCallback = ^(id reply)
     {
         NSString *outputString = @"";
-        if([reply isKindOfClass:[NSDictionary class]]){
-            NSDictionary* dict = reply;
-            outputString = @"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnerID: %@",[dict objectForKey:@"ID"], [dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnerID"];
-        }
-        else{
-            NSArray* arr = reply;
-            for (int i=0; i<[arr count]; i++) {
-                NSDictionary* dict = [arr objectAtIndex:i];
-                outputString = [outputString stringByAppendingString:[NSString stringWithFormat:@"ID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnerID: %@",[dict objectForKey:@"ID"], [dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnerID"]]];
-            }
+        for(id key in reply){
+            NSDictionary* dict = [reply valueForKeyPath:key];
+            outputString = [outputString stringByAppendingString:[NSString stringWithFormat:@"ID: %@, SocketID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnerID: %@",[dict objectForKey:@"ID"], [dict objectForKey:@"socketID"], [dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnerID"]]];
         }
         self.txtStatus.text = outputString;
     };
@@ -103,6 +108,12 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 - (IBAction)getDevicesInView:(id)sender {
     MyResponseCallback requestCallback = ^(id reply)
     {
+        NSString *outputString = @"";
+        for(id key in reply){
+            NSDictionary* dict = [reply valueForKeyPath:key];
+            outputString = [outputString stringByAppendingString:[NSString stringWithFormat:@"ID: %@, SocketID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnerID: %@",[dict objectForKey:@"ID"], [dict objectForKey:@"socketID"], [dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnerID"]]];
+        }
+        self.txtStatus.text = outputString;
     };
     [self.SOD getDevicesWithSelection:@"inView" withCallBack:requestCallback];
 }
@@ -126,7 +137,7 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 
 - (void)dealloc {
     [_txtStatus release];
-    [_userSpecifiedID release];
+    [_txtTestData release];
     [super dealloc];
 }
 @end

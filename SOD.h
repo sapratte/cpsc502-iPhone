@@ -16,16 +16,23 @@
     CMMotionManager *manager;
 }
 
-- (id) initWithDelegate:(id<SocketIODelegate>)delegate;
+- (id) initWithDelegate:(id<SocketIODelegate>)delegate andAddress:(NSString*)address andPort:(int)port;
+- (void) reconnectToServer;
+- (void) calibrateDeviceAngle;
 - (void) startMotionManager;
 - (void) restartMotionManager;
 - (NSString*) tryPairWithID:(NSString*) personID;
--(void)getDevicesWithSelection:(NSString*) selection withCallBack: (void(^)(id response))completionCB;
-- (NSDictionary*) getAllTrackedPeople;
+- (void) getDevicesWithSelection:(NSString*) selection withCallBack: (void(^)(id response))completionCB;
+- (void) getAllTrackedPeoplewithCallBack: (void(^)(id response))completionCB;
 - (NSString*) unpairEveryone;
 - (void) setPairingState;
 - (void) unpairDevice;
+- (void) unpairAllDevices;
 @property (nonatomic, strong) SocketIO *SocketIO;
 @property float OffsetValue;
 @property (nonatomic, strong) NSString* OwnerID;
+@property (nonatomic, strong) CMMotionManager *Manager;
+@property (nonatomic, strong) NSString *address;
+@property int port;
+@property float degrees;
 @end

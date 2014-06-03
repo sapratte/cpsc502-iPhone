@@ -10,6 +10,6 @@
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
 @property (retain, nonatomic) IBOutlet UITextView *txtStatus;
-@property (retain, nonatomic) IBOutlet UITextField *userSpecifiedID;
+@property (retain, nonatomic) IBOutlet UITextField *txtTestData;
 
 @end
