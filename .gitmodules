@@ -1,0 +1,3 @@
+[submodule "SOD"]
+	path = SOD
+	url = https://github.com/ase-lab/SoD_iOS_Library.git
