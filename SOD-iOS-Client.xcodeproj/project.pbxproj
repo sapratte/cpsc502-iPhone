@@ -7,19 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		217E0F0718FBD75F00BACE6A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 217E0EEF18FBD75F00BACE6A /* .gitignore */; };
-		217E0F0818FBD75F00BACE6A /* .gitmodules in Resources */ = {isa = PBXBuildFile; fileRef = 217E0EF018FBD75F00BACE6A /* .gitmodules */; };
-		217E0F0918FBD75F00BACE6A /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 217E0EF118FBD75F00BACE6A /* CHANGELOG.md */; };
-		217E0F0A18FBD75F00BACE6A /* CONTRIBUTORS.md in Resources */ = {isa = PBXBuildFile; fileRef = 217E0EF218FBD75F00BACE6A /* CONTRIBUTORS.md */; };
-		217E0F0B18FBD75F00BACE6A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 217E0EF318FBD75F00BACE6A /* LICENSE */; };
-		217E0F0C18FBD75F00BACE6A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 217E0EF418FBD75F00BACE6A /* README.md */; };
-		217E0F0D18FBD75F00BACE6A /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 217E0EF618FBD75F00BACE6A /* SocketIO.m */; };
-		217E0F0E18FBD75F00BACE6A /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 217E0EF818FBD75F00BACE6A /* SocketIOJSONSerialization.m */; };
-		217E0F0F18FBD75F00BACE6A /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217E0EFA18FBD75F00BACE6A /* SocketIOPacket.m */; };
-		217E0F1018FBD75F00BACE6A /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217E0EFD18FBD75F00BACE6A /* SocketIOTransportWebsocket.m */; };
-		217E0F1118FBD75F00BACE6A /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 217E0EFF18FBD75F00BACE6A /* SocketIOTransportXHR.m */; };
-		217E0F1218FBD75F00BACE6A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 217E0F0118FBD75F00BACE6A /* .gitignore */; };
-		217E0F1318FBD75F00BACE6A /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217E0F0618FBD75F00BACE6A /* SRWebSocket.m */; };
 		217E0F1518FBD7D200BACE6A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217E0F1418FBD7D100BACE6A /* Security.framework */; };
 		217E0F1718FBD7DC00BACE6A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 217E0F1618FBD7DC00BACE6A /* libicucore.dylib */; };
 		217E0F1918FBD7E300BACE6A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217E0F1818FBD7E300BACE6A /* CFNetwork.framework */; };
@@ -37,7 +24,6 @@
 		21B53C7418D22A9600136835 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C5618D22A9600136835 /* UIKit.framework */; };
 		21B53C7C18D22A9600136835 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C7A18D22A9600136835 /* InfoPlist.strings */; };
 		21B53C7E18D22A9600136835 /* SOD_iOS_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C7D18D22A9600136835 /* SOD_iOS_ClientTests.m */; };
-		21DEB60F1924057F002B9603 /* SOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DEB60E1924057F002B9603 /* SOD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,27 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		217E0EEF18FBD75F00BACE6A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		217E0EF018FBD75F00BACE6A /* .gitmodules */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
-		217E0EF118FBD75F00BACE6A /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
-		217E0EF218FBD75F00BACE6A /* CONTRIBUTORS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CONTRIBUTORS.md; sourceTree = "<group>"; };
-		217E0EF318FBD75F00BACE6A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		217E0EF418FBD75F00BACE6A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		217E0EF518FBD75F00BACE6A /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIO.h; sourceTree = "<group>"; };
-		217E0EF618FBD75F00BACE6A /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIO.m; sourceTree = "<group>"; };
-		217E0EF718FBD75F00BACE6A /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOJSONSerialization.h; sourceTree = "<group>"; };
-		217E0EF818FBD75F00BACE6A /* SocketIOJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOJSONSerialization.m; sourceTree = "<group>"; };
-		217E0EF918FBD75F00BACE6A /* SocketIOPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOPacket.h; sourceTree = "<group>"; };
-		217E0EFA18FBD75F00BACE6A /* SocketIOPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOPacket.m; sourceTree = "<group>"; };
-		217E0EFB18FBD75F00BACE6A /* SocketIOTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransport.h; sourceTree = "<group>"; };
-		217E0EFC18FBD75F00BACE6A /* SocketIOTransportWebsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportWebsocket.h; sourceTree = "<group>"; };
-		217E0EFD18FBD75F00BACE6A /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportWebsocket.m; sourceTree = "<group>"; };
-		217E0EFE18FBD75F00BACE6A /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportXHR.h; sourceTree = "<group>"; };
-		217E0EFF18FBD75F00BACE6A /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportXHR.m; sourceTree = "<group>"; };
-		217E0F0118FBD75F00BACE6A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		217E0F0418FBD75F00BACE6A /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
-		217E0F0518FBD75F00BACE6A /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
-		217E0F0618FBD75F00BACE6A /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		217E0F1418FBD7D100BACE6A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		217E0F1618FBD7DC00BACE6A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		217E0F1818FBD7E300BACE6A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -94,8 +59,6 @@
 		21B53C7918D22A9600136835 /* SOD-iOS-ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOD-iOS-ClientTests-Info.plist"; sourceTree = "<group>"; };
 		21B53C7B18D22A9600136835 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21B53C7D18D22A9600136835 /* SOD_iOS_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOD_iOS_ClientTests.m; sourceTree = "<group>"; };
-		21DEB60D1924057F002B9603 /* SOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOD.h; sourceTree = "<group>"; };
-		21DEB60E1924057F002B9603 /* SOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,57 +88,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		217E0EEE18FBD75F00BACE6A /* socket.IO-objc-master */ = {
-			isa = PBXGroup;
-			children = (
-				217E0EEF18FBD75F00BACE6A /* .gitignore */,
-				217E0EF018FBD75F00BACE6A /* .gitmodules */,
-				217E0EF118FBD75F00BACE6A /* CHANGELOG.md */,
-				217E0EF218FBD75F00BACE6A /* CONTRIBUTORS.md */,
-				217E0EF318FBD75F00BACE6A /* LICENSE */,
-				217E0EF418FBD75F00BACE6A /* README.md */,
-				217E0EF518FBD75F00BACE6A /* SocketIO.h */,
-				217E0EF618FBD75F00BACE6A /* SocketIO.m */,
-				217E0EF718FBD75F00BACE6A /* SocketIOJSONSerialization.h */,
-				217E0EF818FBD75F00BACE6A /* SocketIOJSONSerialization.m */,
-				217E0EF918FBD75F00BACE6A /* SocketIOPacket.h */,
-				217E0EFA18FBD75F00BACE6A /* SocketIOPacket.m */,
-				217E0EFB18FBD75F00BACE6A /* SocketIOTransport.h */,
-				217E0EFC18FBD75F00BACE6A /* SocketIOTransportWebsocket.h */,
-				217E0EFD18FBD75F00BACE6A /* SocketIOTransportWebsocket.m */,
-				217E0EFE18FBD75F00BACE6A /* SocketIOTransportXHR.h */,
-				217E0EFF18FBD75F00BACE6A /* SocketIOTransportXHR.m */,
-				217E0F0018FBD75F00BACE6A /* submodules */,
-			);
-			path = "socket.IO-objc-master";
-			sourceTree = "<group>";
-		};
-		217E0F0018FBD75F00BACE6A /* submodules */ = {
-			isa = PBXGroup;
-			children = (
-				217E0F0118FBD75F00BACE6A /* .gitignore */,
-				217E0F0218FBD75F00BACE6A /* socket-rocket */,
-			);
-			path = submodules;
-			sourceTree = "<group>";
-		};
-		217E0F0218FBD75F00BACE6A /* socket-rocket */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "socket-rocket";
-			sourceTree = "<group>";
-		};
-		217E0F0318FBD75F00BACE6A /* SocketRocket */ = {
-			isa = PBXGroup;
-			children = (
-				217E0F0418FBD75F00BACE6A /* SocketRocket-Prefix.pch */,
-				217E0F0518FBD75F00BACE6A /* SRWebSocket.h */,
-				217E0F0618FBD75F00BACE6A /* SRWebSocket.m */,
-			);
-			path = SocketRocket;
-			sourceTree = "<group>";
-		};
 		21B53C4618D22A9600136835 = {
 			isa = PBXGroup;
 			children = (
@@ -201,13 +113,10 @@
 				217E0F1818FBD7E300BACE6A /* CFNetwork.framework */,
 				217E0F1618FBD7DC00BACE6A /* libicucore.dylib */,
 				217E0F1418FBD7D100BACE6A /* Security.framework */,
-				21B53C8918D23A0D00136835 /* src */,
 				21B53C5218D22A9600136835 /* Foundation.framework */,
 				21B53C5418D22A9600136835 /* CoreGraphics.framework */,
 				21B53C5618D22A9600136835 /* UIKit.framework */,
 				21B53C7118D22A9600136835 /* XCTest.framework */,
-				21DEB60D1924057F002B9603 /* SOD.h */,
-				21DEB60E1924057F002B9603 /* SOD.m */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,15 +162,6 @@
 				21B53C7A18D22A9600136835 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		21B53C8918D23A0D00136835 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				217E0EEE18FBD75F00BACE6A /* socket.IO-objc-master */,
-				217E0F0318FBD75F00BACE6A /* SocketRocket */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,14 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				217E0F1218FBD75F00BACE6A /* .gitignore in Resources */,
-				217E0F0718FBD75F00BACE6A /* .gitignore in Resources */,
-				217E0F0918FBD75F00BACE6A /* CHANGELOG.md in Resources */,
-				217E0F0B18FBD75F00BACE6A /* LICENSE in Resources */,
 				21B53C6B18D22A9600136835 /* Images.xcassets in Resources */,
-				217E0F0818FBD75F00BACE6A /* .gitmodules in Resources */,
-				217E0F0A18FBD75F00BACE6A /* CONTRIBUTORS.md in Resources */,
-				217E0F0C18FBD75F00BACE6A /* README.md in Resources */,
 				21B53C5D18D22A9600136835 /* InfoPlist.strings in Resources */,
 				21B53C6618D22A9600136835 /* Main.storyboard in Resources */,
 			);
@@ -371,16 +264,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				217E0F0D18FBD75F00BACE6A /* SocketIO.m in Sources */,
 				21B53C6918D22A9600136835 /* ViewController.m in Sources */,
 				21B53C6318D22A9600136835 /* AppDelegate.m in Sources */,
-				217E0F0F18FBD75F00BACE6A /* SocketIOPacket.m in Sources */,
-				21DEB60F1924057F002B9603 /* SOD.m in Sources */,
-				217E0F1318FBD75F00BACE6A /* SRWebSocket.m in Sources */,
 				21B53C5F18D22A9600136835 /* main.m in Sources */,
-				217E0F0E18FBD75F00BACE6A /* SocketIOJSONSerialization.m in Sources */,
-				217E0F1118FBD75F00BACE6A /* SocketIOTransportXHR.m in Sources */,
-				217E0F1018FBD75F00BACE6A /* SocketIOTransportWebsocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
