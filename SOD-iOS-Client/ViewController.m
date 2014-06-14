@@ -25,11 +25,11 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     if(self){
         self.txtTestData.delegate = self;
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stringReceivedHandler:) name:@"stringReceived" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stringReceivedHandler:) name:@"string" object:nil];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dictionaryReceivedHandler:) name:@"dictionaryReceived" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dictionaryReceivedHandler:) name:@"dictionary" object:nil];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventReceivedHandler:) name:@"eventReceived" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventReceivedHandler:) name:@"event" object:nil];
     }
     
 	// Do any additional setup after loading the view, typically from a nib.
@@ -157,6 +157,7 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 - (void)dealloc {
     [_txtStatus release];
     [_txtTestData release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 @end
