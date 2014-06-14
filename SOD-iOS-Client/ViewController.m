@@ -21,10 +21,21 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 {
     [super viewDidLoad];
     self = [super init];
+    
+    //create SoD instance, setup dimensions and device type
     self.SOD = [[SOD alloc] initWithAddress:@"192.168.1.69" andPort:3000];
+    self.SOD.height = 50;
+    self.SOD.width = 50;
+    self.SOD.deviceType = @"iPad";
+    
+    //send info about this device to server
+    [self.SOD sendDeviceInfoToServer];
+    
     if(self){
         self.txtTestData.delegate = self;
         
+        //add event handlers, name = eventName which server sent to
+        //For example, socket.emit("string", "testString") will call stringReceivedHandler
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stringReceivedHandler:) name:@"string" object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dictionaryReceivedHandler:) name:@"dictionary" object:nil];
