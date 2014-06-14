@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SOD.h"
+#import "SocketIOPacket.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) SOD *SOD;
@@ -20,9 +21,15 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 {
     [super viewDidLoad];
     self = [super init];
-    self.SOD = [[SOD alloc] initWithDelegate:self andAddress:@"192.168.20.12" andPort:3000];
+    self.SOD = [[SOD alloc] initWithAddress:@"192.168.1.69" andPort:3000];
     if(self){
         self.txtTestData.delegate = self;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stringReceivedHandler:) name:@"stringReceived" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dictionaryReceivedHandler:) name:@"dictionaryReceived" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventReceivedHandler:) name:@"eventReceived" object:nil];
     }
     
 	// Do any additional setup after loading the view, typically from a nib.
@@ -117,13 +124,28 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     [self.SOD getDevicesWithSelection:@"inView" withCallBack:requestCallback];
 }
 
+- (void)stringReceivedHandler: (NSNotification*) event
+{
+    NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
+    NSLog(@"String received: %@", [theData objectForKey:@"data"]);
+}
+
+- (void)dictionaryReceivedHandler: (NSNotification*) event
+{
+    NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
+    NSLog(@"Dictionary received: %@", [theData objectForKey:@"data"]);
+}
+
+- (void)eventReceivedHandler: (NSNotification*) event
+{
+    NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
+    NSLog(@"Event received: %@", [theData objectForKey:@"data"]);
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
-    
-
 
 -(NSString*) dictionaryToString:(NSDictionary*) dictionary{
     NSMutableString *returnString = [[NSMutableString alloc] init];
@@ -131,8 +153,6 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
         [returnString appendFormat:@"%@ : %@\n", aKey, [dictionary valueForKey:aKey]];
     return returnString;
 }
-    
-
 
 - (void)dealloc {
     [_txtStatus release];
