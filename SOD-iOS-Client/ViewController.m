@@ -23,7 +23,7 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     self = [super init];
     
     //create SoD instance, setup dimensions and device type
-    self.SOD = [[SOD alloc] initWithAddress:@"192.168.1.69" andPort:3000];
+    self.SOD = [[SOD alloc] initWithAddress:@"192.168.0.113" andPort:3000];
     self.SOD.height = 50;
     self.SOD.width = 50;
     self.SOD.deviceType = @"iPad";
@@ -41,6 +41,8 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dictionaryReceivedHandler:) name:@"dictionary" object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventReceivedHandler:) name:@"event" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestReceivedHandler:) name:@"request" object:nil];
     }
     
 	// Do any additional setup after loading the view, typically from a nib.
@@ -151,6 +153,17 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 {
     NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
     NSLog(@"Event received: %@", [theData objectForKey:@"data"]);
+}
+
+- (void)requestReceivedHandler: (NSNotification*) event
+{
+    NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
+    NSLog(@"Received request for... %@", [theData objectForKey:@"requestName"]);
+    NSString* PID = [[event userInfo] objectForKey:@"PID"];
+    NSDictionary *dataToSendBack = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                              @"this is the sample data", @"data", nil];
+    NSLog(@"Viewcontroller sending an acknowledgement with PID %@ and data... %@", PID, dataToSendBack);
+    [self.SOD sendAcknowledgementWithPID:PID andData:dataToSendBack];
 }
 
 - (void)didReceiveMemoryWarning
