@@ -23,7 +23,7 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     self = [super init];
     
     //create SoD instance, setup dimensions and device type
-    self.SOD = [[SOD alloc] initWithAddress:@"192.168.0.113" andPort:3000];
+    self.SOD = [[SOD alloc] initWithAddress:@"192.168.20.60" andPort:3000];
     self.SOD.height = 50;
     self.SOD.width = 50;
     self.SOD.deviceType = @"iPad";
@@ -43,6 +43,8 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventReceivedHandler:) name:@"event" object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestReceivedHandler:) name:@"request" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestedDataReceivedHandler:) name:@"requestedData" object:nil];
     }
     
 	// Do any additional setup after loading the view, typically from a nib.
@@ -56,13 +58,31 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     [self.SOD calibrateDeviceAngle];
 }
 
-- (IBAction)sendTestData:(id)sender {
+- (IBAction)sendTestString:(id)sender {
     NSString* stringData = self.txtTestData.text;
     MyResponseCallback requestCallback = ^(id reply)
     {
         self.txtStatus.text = [reply objectForKey:@"status"];
     };
     [self.SOD sendString:stringData withSelection:@"inView" andCallBack:requestCallback];
+}
+- (IBAction)sendTestDictionary:(id)sender {
+    NSString* stringData = self.txtTestData.text;
+    NSDictionary* dictionaryData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [[[UIDevice currentDevice] identifierForVendor] UUIDString], @"deviceID", stringData, @"string", nil];
+    MyResponseCallback requestCallback = ^(id reply)
+    {
+        self.txtStatus.text = [reply objectForKey:@"status"];
+    };
+    [self.SOD sendDictionary:dictionaryData withSelection:@"all" andCallBack:requestCallback];
+}
+- (IBAction)sendRequest:(id)sender {
+    NSString* requestName = self.txtTestData.text;
+    MyResponseCallback requestCallback = ^(id reply)
+    {
+        self.txtStatus.text = [reply objectForKey:@"status"];
+    };
+    [self.SOD requestDataWithRequestName:requestName andSelection:@"all" andCallBack:requestCallback];
 }
 
 - (IBAction)setPairingState:(id)sender {
@@ -164,6 +184,12 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
                                                               @"this is the sample data", @"data", nil];
     NSLog(@"Viewcontroller sending an acknowledgement with PID %@ and data... %@", PID, dataToSendBack);
     [self.SOD sendAcknowledgementWithPID:PID andData:dataToSendBack];
+}
+
+- (void)requestedDataReceivedHandler: (NSNotification*) event
+{
+    NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
+    NSLog(@"Requested data received: %@", [theData objectForKey:@"data"]);
 }
 
 - (void)didReceiveMemoryWarning
