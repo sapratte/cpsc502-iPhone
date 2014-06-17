@@ -175,6 +175,11 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     NSLog(@"Event received: %@", [theData objectForKey:@"data"]);
 }
 
+/**
+ *  <#Description#>
+ *
+ *  @param event <#event description#>
+ */
 - (void)requestReceivedHandler: (NSNotification*) event
 {
     NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
@@ -186,17 +191,28 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     [self.SOD sendAcknowledgementWithPID:PID andData:dataToSendBack];
 }
 
+//handler for receiving the requested data (Request/reply pattern)
 - (void)requestedDataReceivedHandler: (NSNotification*) event
 {
     NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
     NSLog(@"Requested data received: %@", [theData objectForKey:@"data"]);
 }
 
+/**
+ *  Memory warning...
+ */
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
+/**
+ *  Convert a dictionary to string for output.
+ *
+ *  @param dictionary dictionary to be converted
+ *
+ *  @return string representation of dictionary
+ */
 -(NSString*) dictionaryToString:(NSDictionary*) dictionary{
     NSMutableString *returnString = [[NSMutableString alloc] init];
     for(NSString *aKey in [dictionary allKeys])
