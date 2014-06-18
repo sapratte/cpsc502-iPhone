@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2127147A19510B2C00E8FFF7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2127145A19510B2C00E8FFF7 /* .gitignore */; };
-		2127147B19510B2C00E8FFF7 /* .gitmodules in Resources */ = {isa = PBXBuildFile; fileRef = 2127145B19510B2C00E8FFF7 /* .gitmodules */; };
-		2127147C19510B2C00E8FFF7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2127145C19510B2C00E8FFF7 /* LICENSE */; };
-		2127147D19510B2C00E8FFF7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2127145D19510B2C00E8FFF7 /* README.md */; };
-		2127147E19510B2C00E8FFF7 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 2127145F19510B2C00E8FFF7 /* base64.c */; };
-		2127147F19510B2C00E8FFF7 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127146219510B2C00E8FFF7 /* NSData+SRB64Additions.m */; };
-		2127148019510B2C00E8FFF7 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127146519510B2C00E8FFF7 /* SRWebSocket.m */; };
-		2127148119510B2C00E8FFF7 /* SOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127146719510B2C00E8FFF7 /* SOD.m */; };
-		2127148219510B2C00E8FFF7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2127146919510B2C00E8FFF7 /* .gitignore */; };
-		2127148319510B2C00E8FFF7 /* .gitmodules in Resources */ = {isa = PBXBuildFile; fileRef = 2127146A19510B2C00E8FFF7 /* .gitmodules */; };
-		2127148419510B2C00E8FFF7 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 2127146B19510B2C00E8FFF7 /* CHANGELOG.md */; };
-		2127148519510B2C00E8FFF7 /* CONTRIBUTORS.md in Resources */ = {isa = PBXBuildFile; fileRef = 2127146C19510B2C00E8FFF7 /* CONTRIBUTORS.md */; };
-		2127148619510B2C00E8FFF7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2127146D19510B2C00E8FFF7 /* LICENSE */; };
-		2127148719510B2C00E8FFF7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2127146E19510B2C00E8FFF7 /* README.md */; };
-		2127148819510B2C00E8FFF7 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127147019510B2C00E8FFF7 /* SocketIO.m */; };
-		2127148919510B2C00E8FFF7 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127147219510B2C00E8FFF7 /* SocketIOJSONSerialization.m */; };
-		2127148A19510B2C00E8FFF7 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127147419510B2C00E8FFF7 /* SocketIOPacket.m */; };
-		2127148B19510B2C00E8FFF7 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127147719510B2C00E8FFF7 /* SocketIOTransportWebsocket.m */; };
-		2127148C19510B2C00E8FFF7 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127147919510B2C00E8FFF7 /* SocketIOTransportXHR.m */; };
+		212714AE19510D7F00E8FFF7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2127148E19510D7E00E8FFF7 /* .gitignore */; };
+		212714AF19510D7F00E8FFF7 /* .gitmodules in Resources */ = {isa = PBXBuildFile; fileRef = 2127148F19510D7E00E8FFF7 /* .gitmodules */; };
+		212714B019510D7F00E8FFF7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2127149019510D7E00E8FFF7 /* LICENSE */; };
+		212714B119510D7F00E8FFF7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2127149119510D7E00E8FFF7 /* README.md */; };
+		212714B219510D7F00E8FFF7 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 2127149319510D7E00E8FFF7 /* base64.c */; };
+		212714B319510D7F00E8FFF7 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127149619510D7E00E8FFF7 /* NSData+SRB64Additions.m */; };
+		212714B419510D7F00E8FFF7 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127149919510D7E00E8FFF7 /* SRWebSocket.m */; };
+		212714B519510D7F00E8FFF7 /* SOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2127149B19510D7E00E8FFF7 /* SOD.m */; };
+		212714B619510D7F00E8FFF7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2127149D19510D7E00E8FFF7 /* .gitignore */; };
+		212714B719510D7F00E8FFF7 /* .gitmodules in Resources */ = {isa = PBXBuildFile; fileRef = 2127149E19510D7E00E8FFF7 /* .gitmodules */; };
+		212714B819510D7F00E8FFF7 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 2127149F19510D7E00E8FFF7 /* CHANGELOG.md */; };
+		212714B919510D7F00E8FFF7 /* CONTRIBUTORS.md in Resources */ = {isa = PBXBuildFile; fileRef = 212714A019510D7E00E8FFF7 /* CONTRIBUTORS.md */; };
+		212714BA19510D7F00E8FFF7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 212714A119510D7E00E8FFF7 /* LICENSE */; };
+		212714BB19510D7F00E8FFF7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 212714A219510D7E00E8FFF7 /* README.md */; };
+		212714BC19510D7F00E8FFF7 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 212714A419510D7E00E8FFF7 /* SocketIO.m */; };
+		212714BD19510D7F00E8FFF7 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 212714A619510D7E00E8FFF7 /* SocketIOJSONSerialization.m */; };
+		212714BE19510D7F00E8FFF7 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 212714A819510D7E00E8FFF7 /* SocketIOPacket.m */; };
+		212714BF19510D7F00E8FFF7 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 212714AB19510D7E00E8FFF7 /* SocketIOTransportWebsocket.m */; };
+		212714C019510D7F00E8FFF7 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 212714AD19510D7E00E8FFF7 /* SocketIOTransportXHR.m */; };
 		212759F1194128D500F0DE4B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212759F0194128D500F0DE4B /* SenTestingKit.framework */; };
 		212759F319412A3B00F0DE4B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212759F0194128D500F0DE4B /* SenTestingKit.framework */; };
 		217E0F1518FBD7D200BACE6A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217E0F1418FBD7D100BACE6A /* Security.framework */; };
@@ -37,7 +37,6 @@
 		21B53C5D18D22A9600136835 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C5B18D22A9600136835 /* InfoPlist.strings */; };
 		21B53C5F18D22A9600136835 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C5E18D22A9600136835 /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		21B53C6318D22A9600136835 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C6218D22A9600136835 /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		21B53C6618D22A9600136835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C6418D22A9600136835 /* Main.storyboard */; };
 		21B53C6918D22A9600136835 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C6818D22A9600136835 /* ViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		21B53C6B18D22A9600136835 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C6A18D22A9600136835 /* Images.xcassets */; };
 		21B53C7218D22A9600136835 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C7118D22A9600136835 /* XCTest.framework */; };
@@ -58,36 +57,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2127145A19510B2C00E8FFF7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		2127145B19510B2C00E8FFF7 /* .gitmodules */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
-		2127145C19510B2C00E8FFF7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		2127145D19510B2C00E8FFF7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		2127145F19510B2C00E8FFF7 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
-		2127146019510B2C00E8FFF7 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
-		2127146119510B2C00E8FFF7 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
-		2127146219510B2C00E8FFF7 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
-		2127146319510B2C00E8FFF7 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
-		2127146419510B2C00E8FFF7 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
-		2127146519510B2C00E8FFF7 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
-		2127146619510B2C00E8FFF7 /* SOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOD.h; sourceTree = "<group>"; };
-		2127146719510B2C00E8FFF7 /* SOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOD.m; sourceTree = "<group>"; };
-		2127146919510B2C00E8FFF7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		2127146A19510B2C00E8FFF7 /* .gitmodules */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
-		2127146B19510B2C00E8FFF7 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
-		2127146C19510B2C00E8FFF7 /* CONTRIBUTORS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CONTRIBUTORS.md; sourceTree = "<group>"; };
-		2127146D19510B2C00E8FFF7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		2127146E19510B2C00E8FFF7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		2127146F19510B2C00E8FFF7 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIO.h; sourceTree = "<group>"; };
-		2127147019510B2C00E8FFF7 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIO.m; sourceTree = "<group>"; };
-		2127147119510B2C00E8FFF7 /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOJSONSerialization.h; sourceTree = "<group>"; };
-		2127147219510B2C00E8FFF7 /* SocketIOJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOJSONSerialization.m; sourceTree = "<group>"; };
-		2127147319510B2C00E8FFF7 /* SocketIOPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOPacket.h; sourceTree = "<group>"; };
-		2127147419510B2C00E8FFF7 /* SocketIOPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOPacket.m; sourceTree = "<group>"; };
-		2127147519510B2C00E8FFF7 /* SocketIOTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransport.h; sourceTree = "<group>"; };
-		2127147619510B2C00E8FFF7 /* SocketIOTransportWebsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportWebsocket.h; sourceTree = "<group>"; };
-		2127147719510B2C00E8FFF7 /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportWebsocket.m; sourceTree = "<group>"; };
-		2127147819510B2C00E8FFF7 /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportXHR.h; sourceTree = "<group>"; };
-		2127147919510B2C00E8FFF7 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportXHR.m; sourceTree = "<group>"; };
+		2127148E19510D7E00E8FFF7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2127148F19510D7E00E8FFF7 /* .gitmodules */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
+		2127149019510D7E00E8FFF7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		2127149119510D7E00E8FFF7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		2127149319510D7E00E8FFF7 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		2127149419510D7E00E8FFF7 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		2127149519510D7E00E8FFF7 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		2127149619510D7E00E8FFF7 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		2127149719510D7E00E8FFF7 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		2127149819510D7E00E8FFF7 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		2127149919510D7E00E8FFF7 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		2127149A19510D7E00E8FFF7 /* SOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOD.h; sourceTree = "<group>"; };
+		2127149B19510D7E00E8FFF7 /* SOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOD.m; sourceTree = "<group>"; };
+		2127149D19510D7E00E8FFF7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2127149E19510D7E00E8FFF7 /* .gitmodules */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
+		2127149F19510D7E00E8FFF7 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		212714A019510D7E00E8FFF7 /* CONTRIBUTORS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CONTRIBUTORS.md; sourceTree = "<group>"; };
+		212714A119510D7E00E8FFF7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		212714A219510D7E00E8FFF7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		212714A319510D7E00E8FFF7 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIO.h; sourceTree = "<group>"; };
+		212714A419510D7E00E8FFF7 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIO.m; sourceTree = "<group>"; };
+		212714A519510D7E00E8FFF7 /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOJSONSerialization.h; sourceTree = "<group>"; };
+		212714A619510D7E00E8FFF7 /* SocketIOJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOJSONSerialization.m; sourceTree = "<group>"; };
+		212714A719510D7E00E8FFF7 /* SocketIOPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOPacket.h; sourceTree = "<group>"; };
+		212714A819510D7E00E8FFF7 /* SocketIOPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOPacket.m; sourceTree = "<group>"; };
+		212714A919510D7E00E8FFF7 /* SocketIOTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransport.h; sourceTree = "<group>"; };
+		212714AA19510D7E00E8FFF7 /* SocketIOTransportWebsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportWebsocket.h; sourceTree = "<group>"; };
+		212714AB19510D7E00E8FFF7 /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportWebsocket.m; sourceTree = "<group>"; };
+		212714AC19510D7E00E8FFF7 /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportXHR.h; sourceTree = "<group>"; };
+		212714AD19510D7E00E8FFF7 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportXHR.m; sourceTree = "<group>"; };
 		212759F0194128D500F0DE4B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		217E0F1418FBD7D100BACE6A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		217E0F1618FBD7DC00BACE6A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -142,55 +141,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2127145919510B2C00E8FFF7 /* SOD */ = {
+		2127148D19510D7E00E8FFF7 /* SOD */ = {
 			isa = PBXGroup;
 			children = (
-				2127145A19510B2C00E8FFF7 /* .gitignore */,
-				2127145B19510B2C00E8FFF7 /* .gitmodules */,
-				2127145C19510B2C00E8FFF7 /* LICENSE */,
-				2127145D19510B2C00E8FFF7 /* README.md */,
-				2127145E19510B2C00E8FFF7 /* SocketRocket */,
-				2127146619510B2C00E8FFF7 /* SOD.h */,
-				2127146719510B2C00E8FFF7 /* SOD.m */,
-				2127146819510B2C00E8FFF7 /* submodules */,
+				2127148E19510D7E00E8FFF7 /* .gitignore */,
+				2127148F19510D7E00E8FFF7 /* .gitmodules */,
+				2127149019510D7E00E8FFF7 /* LICENSE */,
+				2127149119510D7E00E8FFF7 /* README.md */,
+				2127149219510D7E00E8FFF7 /* SocketRocket */,
+				2127149A19510D7E00E8FFF7 /* SOD.h */,
+				2127149B19510D7E00E8FFF7 /* SOD.m */,
+				2127149C19510D7E00E8FFF7 /* submodules */,
 			);
 			path = SOD;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
-		2127145E19510B2C00E8FFF7 /* SocketRocket */ = {
+		2127149219510D7E00E8FFF7 /* SocketRocket */ = {
 			isa = PBXGroup;
 			children = (
-				2127145F19510B2C00E8FFF7 /* base64.c */,
-				2127146019510B2C00E8FFF7 /* base64.h */,
-				2127146119510B2C00E8FFF7 /* NSData+SRB64Additions.h */,
-				2127146219510B2C00E8FFF7 /* NSData+SRB64Additions.m */,
-				2127146319510B2C00E8FFF7 /* SocketRocket-Prefix.pch */,
-				2127146419510B2C00E8FFF7 /* SRWebSocket.h */,
-				2127146519510B2C00E8FFF7 /* SRWebSocket.m */,
+				2127149319510D7E00E8FFF7 /* base64.c */,
+				2127149419510D7E00E8FFF7 /* base64.h */,
+				2127149519510D7E00E8FFF7 /* NSData+SRB64Additions.h */,
+				2127149619510D7E00E8FFF7 /* NSData+SRB64Additions.m */,
+				2127149719510D7E00E8FFF7 /* SocketRocket-Prefix.pch */,
+				2127149819510D7E00E8FFF7 /* SRWebSocket.h */,
+				2127149919510D7E00E8FFF7 /* SRWebSocket.m */,
 			);
 			path = SocketRocket;
 			sourceTree = "<group>";
 		};
-		2127146819510B2C00E8FFF7 /* submodules */ = {
+		2127149C19510D7E00E8FFF7 /* submodules */ = {
 			isa = PBXGroup;
 			children = (
-				2127146919510B2C00E8FFF7 /* .gitignore */,
-				2127146A19510B2C00E8FFF7 /* .gitmodules */,
-				2127146B19510B2C00E8FFF7 /* CHANGELOG.md */,
-				2127146C19510B2C00E8FFF7 /* CONTRIBUTORS.md */,
-				2127146D19510B2C00E8FFF7 /* LICENSE */,
-				2127146E19510B2C00E8FFF7 /* README.md */,
-				2127146F19510B2C00E8FFF7 /* SocketIO.h */,
-				2127147019510B2C00E8FFF7 /* SocketIO.m */,
-				2127147119510B2C00E8FFF7 /* SocketIOJSONSerialization.h */,
-				2127147219510B2C00E8FFF7 /* SocketIOJSONSerialization.m */,
-				2127147319510B2C00E8FFF7 /* SocketIOPacket.h */,
-				2127147419510B2C00E8FFF7 /* SocketIOPacket.m */,
-				2127147519510B2C00E8FFF7 /* SocketIOTransport.h */,
-				2127147619510B2C00E8FFF7 /* SocketIOTransportWebsocket.h */,
-				2127147719510B2C00E8FFF7 /* SocketIOTransportWebsocket.m */,
-				2127147819510B2C00E8FFF7 /* SocketIOTransportXHR.h */,
-				2127147919510B2C00E8FFF7 /* SocketIOTransportXHR.m */,
+				2127149D19510D7E00E8FFF7 /* .gitignore */,
+				2127149E19510D7E00E8FFF7 /* .gitmodules */,
+				2127149F19510D7E00E8FFF7 /* CHANGELOG.md */,
+				212714A019510D7E00E8FFF7 /* CONTRIBUTORS.md */,
+				212714A119510D7E00E8FFF7 /* LICENSE */,
+				212714A219510D7E00E8FFF7 /* README.md */,
+				212714A319510D7E00E8FFF7 /* SocketIO.h */,
+				212714A419510D7E00E8FFF7 /* SocketIO.m */,
+				212714A519510D7E00E8FFF7 /* SocketIOJSONSerialization.h */,
+				212714A619510D7E00E8FFF7 /* SocketIOJSONSerialization.m */,
+				212714A719510D7E00E8FFF7 /* SocketIOPacket.h */,
+				212714A819510D7E00E8FFF7 /* SocketIOPacket.m */,
+				212714A919510D7E00E8FFF7 /* SocketIOTransport.h */,
+				212714AA19510D7E00E8FFF7 /* SocketIOTransportWebsocket.h */,
+				212714AB19510D7E00E8FFF7 /* SocketIOTransportWebsocket.m */,
+				212714AC19510D7E00E8FFF7 /* SocketIOTransportXHR.h */,
+				212714AD19510D7E00E8FFF7 /* SocketIOTransportXHR.m */,
 			);
 			path = submodules;
 			sourceTree = "<group>";
@@ -198,7 +197,6 @@
 		21B53C4618D22A9600136835 = {
 			isa = PBXGroup;
 			children = (
-				2127145919510B2C00E8FFF7 /* SOD */,
 				21B53C5818D22A9600136835 /* SOD-iOS-Client */,
 				21B53C7718D22A9600136835 /* SOD-iOS-ClientTests */,
 				21B53C5118D22A9600136835 /* Frameworks */,
@@ -233,6 +231,7 @@
 		21B53C5818D22A9600136835 /* SOD-iOS-Client */ = {
 			isa = PBXGroup;
 			children = (
+				2127148D19510D7E00E8FFF7 /* SOD */,
 				21B53C6118D22A9600136835 /* AppDelegate.h */,
 				21B53C6218D22A9600136835 /* AppDelegate.m */,
 				21B53C6418D22A9600136835 /* Main.storyboard */,
@@ -352,19 +351,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2127148219510B2C00E8FFF7 /* .gitignore in Resources */,
-				2127148419510B2C00E8FFF7 /* CHANGELOG.md in Resources */,
-				2127147C19510B2C00E8FFF7 /* LICENSE in Resources */,
-				2127147A19510B2C00E8FFF7 /* .gitignore in Resources */,
-				2127148719510B2C00E8FFF7 /* README.md in Resources */,
-				2127148319510B2C00E8FFF7 /* .gitmodules in Resources */,
-				2127148519510B2C00E8FFF7 /* CONTRIBUTORS.md in Resources */,
-				2127148619510B2C00E8FFF7 /* LICENSE in Resources */,
+				212714B919510D7F00E8FFF7 /* CONTRIBUTORS.md in Resources */,
+				212714B119510D7F00E8FFF7 /* README.md in Resources */,
+				212714B619510D7F00E8FFF7 /* .gitignore in Resources */,
 				21B53C6B18D22A9600136835 /* Images.xcassets in Resources */,
-				2127147D19510B2C00E8FFF7 /* README.md in Resources */,
-				2127147B19510B2C00E8FFF7 /* .gitmodules in Resources */,
+				212714AE19510D7F00E8FFF7 /* .gitignore in Resources */,
+				212714BA19510D7F00E8FFF7 /* LICENSE in Resources */,
+				212714BB19510D7F00E8FFF7 /* README.md in Resources */,
+				212714AF19510D7F00E8FFF7 /* .gitmodules in Resources */,
 				21B53C5D18D22A9600136835 /* InfoPlist.strings in Resources */,
-				21B53C6618D22A9600136835 /* Main.storyboard in Resources */,
+				212714B719510D7F00E8FFF7 /* .gitmodules in Resources */,
+				212714B819510D7F00E8FFF7 /* CHANGELOG.md in Resources */,
+				212714B019510D7F00E8FFF7 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,18 +381,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2127148019510B2C00E8FFF7 /* SRWebSocket.m in Sources */,
-				2127147F19510B2C00E8FFF7 /* NSData+SRB64Additions.m in Sources */,
-				2127148A19510B2C00E8FFF7 /* SocketIOPacket.m in Sources */,
+				212714B419510D7F00E8FFF7 /* SRWebSocket.m in Sources */,
+				212714B319510D7F00E8FFF7 /* NSData+SRB64Additions.m in Sources */,
+				212714BE19510D7F00E8FFF7 /* SocketIOPacket.m in Sources */,
 				21B53C6918D22A9600136835 /* ViewController.m in Sources */,
 				21B53C6318D22A9600136835 /* AppDelegate.m in Sources */,
-				2127148C19510B2C00E8FFF7 /* SocketIOTransportXHR.m in Sources */,
-				2127147E19510B2C00E8FFF7 /* base64.c in Sources */,
+				212714C019510D7F00E8FFF7 /* SocketIOTransportXHR.m in Sources */,
+				212714B219510D7F00E8FFF7 /* base64.c in Sources */,
 				21B53C5F18D22A9600136835 /* main.m in Sources */,
-				2127148B19510B2C00E8FFF7 /* SocketIOTransportWebsocket.m in Sources */,
-				2127148819510B2C00E8FFF7 /* SocketIO.m in Sources */,
-				2127148119510B2C00E8FFF7 /* SOD.m in Sources */,
-				2127148919510B2C00E8FFF7 /* SocketIOJSONSerialization.m in Sources */,
+				212714BF19510D7F00E8FFF7 /* SocketIOTransportWebsocket.m in Sources */,
+				212714BC19510D7F00E8FFF7 /* SocketIO.m in Sources */,
+				212714B519510D7F00E8FFF7 /* SOD.m in Sources */,
+				212714BD19510D7F00E8FFF7 /* SocketIOJSONSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
