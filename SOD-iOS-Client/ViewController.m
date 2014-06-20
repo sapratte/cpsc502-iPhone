@@ -157,6 +157,25 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     [self.SOD getDevicesWithSelection:@"inView" withCallBack:requestCallback];
 }
 
+
+- (IBAction)getSingleDeviceByID:(id)sender {
+    MyResponseCallback completionCB = ^(id reply)
+    {
+        NSString *outputString = @"";
+        if(reply != [NSNull null]){
+            NSDictionary* dict = reply;
+            outputString = [outputString stringByAppendingString:[NSString stringWithFormat:@"ID: %@, SocketID: %@, Location: %@, Orientation: %@, PairingState: %@, OwnerID: %@",[dict objectForKey:@"ID"], [dict objectForKey:@"socketID"], [dict objectForKey:@"Location"], [dict objectForKey:@"Orientation"], [dict objectForKey:@"PairingState"], [dict objectForKey:@"OwnerID"]]];
+        }
+        else{
+            outputString = [NSString stringWithFormat:@"No device found with specified ID %@.", self.txtTestData.text];
+        }
+        
+        self.txtStatus.text = outputString;
+    };
+    [self.SOD getDeviceWithID:self.txtTestData.text.integerValue withCallBack:completionCB];
+}
+
+
 - (void)stringReceivedHandler: (NSNotification*) event
 {
     NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
@@ -183,7 +202,7 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 - (void)requestReceivedHandler: (NSNotification*) event
 {
     NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
-    NSLog(@"Received request for... %@", [theData objectForKey:@"requestName"]);
+    NSLog(@"Received request for... %@", [theData objectForKey:@"data"]);
     NSString* PID = [[event userInfo] objectForKey:@"PID"];
     NSDictionary *dataToSendBack = [NSDictionary dictionaryWithObjectsAndKeys:
                                                               @"this is the sample data", @"data", nil];
