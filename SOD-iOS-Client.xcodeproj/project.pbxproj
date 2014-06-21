@@ -44,6 +44,7 @@
 		21B53C7418D22A9600136835 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C5618D22A9600136835 /* UIKit.framework */; };
 		21B53C7C18D22A9600136835 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C7A18D22A9600136835 /* InfoPlist.strings */; };
 		21B53C7E18D22A9600136835 /* SOD_iOS_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C7D18D22A9600136835 /* SOD_iOS_ClientTests.m */; };
+		7ED3A55D19557391001ACDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C6418D22A9600136835 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		21B53C7918D22A9600136835 /* SOD-iOS-ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOD-iOS-ClientTests-Info.plist"; sourceTree = "<group>"; };
 		21B53C7B18D22A9600136835 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21B53C7D18D22A9600136835 /* SOD_iOS_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOD_iOS_ClientTests.m; sourceTree = "<group>"; };
+		7ED3A55B1955735E001ACDAD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 				212714AE19510D7F00E8FFF7 /* .gitignore in Resources */,
 				212714BA19510D7F00E8FFF7 /* LICENSE in Resources */,
 				212714BB19510D7F00E8FFF7 /* README.md in Resources */,
+				7ED3A55D19557391001ACDAD /* Main.storyboard in Resources */,
 				212714AF19510D7F00E8FFF7 /* .gitmodules in Resources */,
 				21B53C5D18D22A9600136835 /* InfoPlist.strings in Resources */,
 				212714B719510D7F00E8FFF7 /* .gitmodules in Resources */,
@@ -427,6 +430,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				21B53C6518D22A9600136835 /* Base */,
+				7ED3A55B1955735E001ACDAD /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
