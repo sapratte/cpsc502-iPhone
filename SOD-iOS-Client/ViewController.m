@@ -26,6 +26,7 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     self.SOD = [[SOD alloc] initWithAddress:@"192.168.20.60" andPort:3000];
     self.SOD.height = 50;
     self.SOD.width = 50;
+    self.SOD.name = @"Test iPad";
     self.SOD.deviceType = @"iPad";
     
     //send info about this device to server
