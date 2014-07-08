@@ -23,7 +23,7 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     self = [super init];
     
     //create SoD instance, setup dimensions and device type
-    self.SOD = [[SOD alloc] initWithAddress:@"192.168.81.1" andPort:3000];
+    self.SOD = [[SOD alloc] initWithAddress:@"192.168.20.60" andPort:3000];
     self.SOD.height = 50;
     self.SOD.width = 50;
     self.SOD.name = @"Test iPad";
