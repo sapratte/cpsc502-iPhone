@@ -12,6 +12,7 @@
 
 @interface ViewController ()
 @property (nonatomic, strong) SOD *SOD;
+@property (nonatomic, strong) Device *Device;
 @end
 
 @implementation ViewController
@@ -24,10 +25,15 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     
     //create SoD instance, setup dimensions and device type
     self.SOD = [[SOD alloc] initWithAddress:@"192.168.20.60" andPort:3000];
-    self.SOD.height = 50;
-    self.SOD.width = 50;
-    self.SOD.name = @"Test iPad";
-    self.SOD.deviceType = @"iPad";
+    self.Device = [Device alloc];
+    self.Device.height = 50;
+    self.Device.width = 50;
+    self.Device.name = @"Test iPad";
+    self.Device.deviceType = @"iPad";
+    //self.SOD.height = 50;
+    //self.SOD.width = 50;
+    //self.SOD.name = @"Test iPad";
+    //self.SOD.deviceType = @"iPad";
     
     //send info about this device to server
     [self.SOD sendDeviceInfoToServer];

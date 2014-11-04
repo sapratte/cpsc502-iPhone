@@ -44,6 +44,8 @@
 		21B53C7418D22A9600136835 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B53C5618D22A9600136835 /* UIKit.framework */; };
 		21B53C7C18D22A9600136835 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C7A18D22A9600136835 /* InfoPlist.strings */; };
 		21B53C7E18D22A9600136835 /* SOD_iOS_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B53C7D18D22A9600136835 /* SOD_iOS_ClientTests.m */; };
+		7E9522561A09670C00EEE91C /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9522551A09670C00EEE91C /* Device.m */; };
+		7E9522591A096A6800EEE91C /* Observer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9522581A096A6800EEE91C /* Observer.m */; };
 		7ED3A55D19557391001ACDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B53C6418D22A9600136835 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +113,10 @@
 		21B53C7918D22A9600136835 /* SOD-iOS-ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOD-iOS-ClientTests-Info.plist"; sourceTree = "<group>"; };
 		21B53C7B18D22A9600136835 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21B53C7D18D22A9600136835 /* SOD_iOS_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOD_iOS_ClientTests.m; sourceTree = "<group>"; };
+		7E9522541A09670C00EEE91C /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
+		7E9522551A09670C00EEE91C /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
+		7E9522571A096A6800EEE91C /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observer.h; sourceTree = "<group>"; };
+		7E9522581A096A6800EEE91C /* Observer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Observer.m; sourceTree = "<group>"; };
 		7ED3A55B1955735E001ACDAD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +159,10 @@
 				2127149219510D7E00E8FFF7 /* SocketRocket */,
 				2127149A19510D7E00E8FFF7 /* SOD.h */,
 				2127149B19510D7E00E8FFF7 /* SOD.m */,
+				7E9522541A09670C00EEE91C /* Device.h */,
+				7E9522551A09670C00EEE91C /* Device.m */,
+				7E9522571A096A6800EEE91C /* Observer.h */,
+				7E9522581A096A6800EEE91C /* Observer.m */,
 				2127149C19510D7E00E8FFF7 /* submodules */,
 			);
 			path = SOD;
@@ -387,6 +397,7 @@
 				212714B419510D7F00E8FFF7 /* SRWebSocket.m in Sources */,
 				212714B319510D7F00E8FFF7 /* NSData+SRB64Additions.m in Sources */,
 				212714BE19510D7F00E8FFF7 /* SocketIOPacket.m in Sources */,
+				7E9522591A096A6800EEE91C /* Observer.m in Sources */,
 				21B53C6918D22A9600136835 /* ViewController.m in Sources */,
 				21B53C6318D22A9600136835 /* AppDelegate.m in Sources */,
 				212714C019510D7F00E8FFF7 /* SocketIOTransportXHR.m in Sources */,
@@ -394,6 +405,7 @@
 				21B53C5F18D22A9600136835 /* main.m in Sources */,
 				212714BF19510D7F00E8FFF7 /* SocketIOTransportWebsocket.m in Sources */,
 				212714BC19510D7F00E8FFF7 /* SocketIO.m in Sources */,
+				7E9522561A09670C00EEE91C /* Device.m in Sources */,
 				212714B519510D7F00E8FFF7 /* SOD.m in Sources */,
 				212714BD19510D7F00E8FFF7 /* SocketIOJSONSerialization.m in Sources */,
 			);
