@@ -46,6 +46,11 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
         //For example, socket.emit("string", "testString") will call stringReceivedHandler
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stringReceivedHandler:) name:@"string" object:nil];
         
+        // Enter view leave view event
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enviewEventHandler:) name:@"enterView" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leaveViewEventHandler:) name:@"leaveView" object:nil];
+        
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dictionaryReceivedHandler:) name:@"dictionary" object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventReceivedHandler:) name:@"event" object:nil];
@@ -189,6 +194,18 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
 {
     NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
     NSLog(@"String received: %@", [theData objectForKey:@"data"]);
+}
+
+- (void)enviewEventHandler: (NSNotification*) event
+{
+    NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
+    NSLog(@"Enter View event received: %@,%@", [theData objectForKey:@"observer"],[theData objectForKey:@"visitor"]);
+}
+- (void)leaveViewEventHandler: (NSNotification*) event
+{
+    NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
+    NSLog(@"Leave View event received: %@,%@", [theData objectForKey:@"observer"],[theData objectForKey:@"visitor"]);
+
 }
 
 - (void)dictionaryReceivedHandler: (NSNotification*) event
