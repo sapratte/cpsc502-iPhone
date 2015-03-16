@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "SOD.h"
 #import "SocketIOPacket.h"
+#import "Device.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) SOD *SOD;
@@ -23,11 +24,13 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     self = [super init];
     
     //create SoD instance, setup dimensions and device type
-    self.SOD = [[SOD alloc] initWithAddress:@"192.168.20.60" andPort:3000];
-    self.SOD.device.height = 50;
-    self.SOD.device.width = 50;
+    self.SOD = [[SOD alloc] initWithAddress:@"192.168.0.22" andPort:3000];
+    self.SOD.device.height = 1;
+    self.SOD.device.width = 1;
     self.SOD.device.name = @"Test iPad";
     self.SOD.device.deviceType = @"iPad";
+    self.SOD.device.FOV = 33;
+    self.SOD.device.orientation = 45;
     //self.SOD.height = 50;
     //self.SOD.width = 50;
     //self.SOD.name = @"Test iPad";
@@ -70,6 +73,7 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
         self.txtStatus.text = [reply objectForKey:@"status"];
     };
     [self.SOD sendString:stringData withSelection:@"inView" andCallBack:requestCallback];
+    
 }
 - (IBAction)sendTestDictionary:(id)sender {
     NSString* stringData = self.txtTestData.text;
