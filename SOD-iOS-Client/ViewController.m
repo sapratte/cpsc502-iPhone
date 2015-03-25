@@ -24,11 +24,12 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
     self = [super init];
     
     //create SoD instance, setup dimensions and device type
-    self.SOD = [[SOD alloc] initWithAddress:@"192.168.0.22" andPort:3000];
+    self.SOD = [[SOD alloc] initWithAddress:@"beastwin.marinhomoreira.com" andPort:3000];
+//	self.SOD = [[SOD alloc] initWithAddress:@"localhost" andPort:3000];
     self.SOD.device.height = 1;
     self.SOD.device.width = 1;
-    self.SOD.device.name = @"Test iPad";
-    self.SOD.device.deviceType = @"iPad";
+    self.SOD.device.name = @"Retail iPhone";
+    self.SOD.device.deviceType = @"iPhone";
     self.SOD.device.FOV = 33;
     self.SOD.device.orientation = 45;
     //self.SOD.height = 50;
@@ -58,10 +59,45 @@ typedef void(^MyResponseCallback)(NSDictionary* response);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestReceivedHandler:) name:@"request" object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestedDataReceivedHandler:) name:@"requestedData" object:nil];
+		
+		
+		// My event on entering a data point view
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nearItemReceivedHandler:) name:@"nearItem" object:nil];
     }
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
+
+
+// ----------------------------------------- USING -----------------------------------------
+
+
+
+- (void)nearItemReceivedHandler: (NSNotification*) event
+{
+	NSDictionary *theData = [[event userInfo] objectForKey:@"data"];
+	NSLog(@"Event received: %@", [theData objectForKey:@"data"]);
+	
+	UIViewController *productview = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductView"];
+	[self presentViewController:productview animated:YES completion:nil];
+}
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------ END ------------------------------------------
+
+// [self.SOD sendEvent:stringData toEvent:@"changePosition" withSelection:@"all" andCallBack:requestCallback];
+
+
+
+
 
 - (IBAction)reconnectToServer:(id)sender {
     [self.SOD reconnectToServer];

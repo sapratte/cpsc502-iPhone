@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WdQ-Wz-wcL">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--Wish List-->
+        <scene sceneID="I2b-1R-eI8">
+            <objects>
+                <viewController id="4dG-aB-QfK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M9Z-yn-cd6"/>
+                        <viewControllerLayoutGuide type="bottom" id="0A5-Oj-UOf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VoE-2C-CER">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wishlistview.png" translatesAutoresizingMaskIntoConstraints="NO" id="KLf-tp-lrn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="2" title="Wish List" image="wishlist.png" selectedImage="wishlist_selected.png" id="9vC-NW-TW5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bhk-VR-M8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="38" y="1502"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="9ow-J0-h0e">
+            <objects>
+                <viewController storyboardIdentifier="ProductView" id="2RE-ty-IRN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ueI-Gt-6Z7"/>
+                        <viewControllerLayoutGuide type="bottom" id="THD-so-c3l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HSy-dc-B5a">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="productview.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Mn-az-bRV">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPH-wP-Fac">
+                                <rect key="frame" x="0.0" y="39" width="39" height="37"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="WdQ-Wz-wcL" kind="presentation" id="ZgP-7D-7XQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="Rou-Ae-E5W"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zc1-Ae-v6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="406" y="778"/>
+        </scene>
+        <!--Scan-->
+        <scene sceneID="9GV-xz-3cD">
+            <objects>
+                <viewController id="Nd2-iK-b4o" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DGo-ZR-1aA"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y3l-3a-zGU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QTE-Sy-W9Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="scanView.png" translatesAutoresizingMaskIntoConstraints="NO" id="FLp-Mx-Xuh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scan" image="scan.png" selectedImage="scan_selected.png" id="f8Z-Mb-1zj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p7C-5U-n3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-735" y="-583"/>
+        </scene>
+        <!--Social-->
+        <scene sceneID="ybo-7J-7vV">
+            <objects>
+                <viewController id="EaT-Bj-vJs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GD1-bX-V7c"/>
+                        <viewControllerLayoutGuide type="bottom" id="udy-kw-d7g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rJw-9k-S6n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="socialview.png" translatesAutoresizingMaskIntoConstraints="NO" id="aBV-Ol-9IK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="1" title="Social" image="social.png" selectedImage="social_selected.png" id="N8a-ll-oOG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7vD-1p-PzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4" y="-598"/>
+        </scene>
+        <!--Center-->
+        <scene sceneID="MV8-BX-jQR">
+            <objects>
+                <viewController id="UEZ-eb-jLy" userLabel="Center" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aRi-iw-j9j"/>
+                        <viewControllerLayoutGuide type="bottom" id="b24-e2-j07"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HaL-QE-MRO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView autoresizesSubviews="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flyerview.png" translatesAutoresizingMaskIntoConstraints="NO" id="hEs-Aq-TuI">
+                                <rect key="frame" x="0.0" y="21" width="320" height="498"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="item1.png" translatesAutoresizingMaskIntoConstraints="NO" id="vlx-BD-4Bt">
+                                <rect key="frame" x="107" y="283" width="193" height="93"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="item2.png" translatesAutoresizingMaskIntoConstraints="NO" id="LFv-dV-ima">
+                                <rect key="frame" x="34" y="407" width="91" height="86"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="item3.png" translatesAutoresizingMaskIntoConstraints="NO" id="DvE-Hv-7DQ">
+                                <rect key="frame" x="196" y="407" width="78" height="78"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Center" id="Xd0-yQ-gDv" userLabel="Center"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qrm-0g-e4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="406" y="116"/>
+        </scene>
+        <!--Retail Tab Bar Controller-->
+        <scene sceneID="ehh-YT-QlZ">
+            <objects>
+                <tabBarController id="WdQ-Wz-wcL" customClass="RetailTabBarController" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="dgC-be-3J0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Nd2-iK-b4o" kind="relationship" relationship="viewControllers" id="pmv-NL-w9v"/>
+                        <segue destination="EaT-Bj-vJs" kind="relationship" relationship="viewControllers" id="8rM-nG-OKA"/>
+                        <segue destination="UEZ-eb-jLy" kind="relationship" relationship="viewControllers" id="Cax-ai-rgt"/>
+                        <segue destination="4dG-aB-QfK" kind="relationship" relationship="viewControllers" id="CML-Sq-WEn"/>
+                        <segue destination="bi9-DY-2oK" kind="relationship" relationship="viewControllers" id="BlM-SU-VoW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MUk-WO-5jB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-414" y="447"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="KLX-LV-bJx">
+            <objects>
+                <viewController id="bi9-DY-2oK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4fi-5f-SZX"/>
+                        <viewControllerLayoutGuide type="bottom" id="UHq-n5-dhP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1W4-un-Ff6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="accountview.png" translatesAutoresizingMaskIntoConstraints="NO" id="p8n-1f-M9Q">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="3" title="Account" image="account.png" selectedImage="accsel.png" id="ky4-wh-HBN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DX7-6q-976" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-761" y="1502"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="account.png" width="24" height="24"/>
+        <image name="accountview.png" width="320" height="519"/>
+        <image name="accsel.png" width="24" height="24"/>
+        <image name="flyerview.png" width="640" height="988"/>
+        <image name="item1.png" width="386" height="193"/>
+        <image name="item2.png" width="177" height="179"/>
+        <image name="item3.png" width="159" height="168"/>
+        <image name="productview.png" width="320" height="449"/>
+        <image name="scan.png" width="25" height="25"/>
+        <image name="scanView.png" width="640" height="991"/>
+        <image name="scan_selected.png" width="23" height="23"/>
+        <image name="social.png" width="23" height="23"/>
+        <image name="social_selected.png" width="24" height="24"/>
+        <image name="socialview.png" width="320" height="519"/>
+        <image name="wishlist.png" width="23" height="23"/>
+        <image name="wishlist_selected.png" width="24" height="24"/>
+        <image name="wishlistview.png" width="320" height="518"/>
+    </resources>
+    <color key="tintColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+</document>
